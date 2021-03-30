@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Bullet
   - Dummy
+  - Item
+  - TutorialWizzard
   layers:
   - Default
   - TransparentFX

@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag != "Player")
+        if(collision.gameObject.tag != "Player" && collision.gameObject.tag != "Item")
         {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);

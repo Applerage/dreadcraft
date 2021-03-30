@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movement;
 
+
     // Update is called once per frame
     void Update()
     {
@@ -32,5 +33,15 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Item")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
