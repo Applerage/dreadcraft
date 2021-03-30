@@ -14415,8 +14415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de90278e1036ca74996e6f7026f34670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  impactEffect: {fileID: 1444971686239000, guid: 2a08b3071ec108040959cc25cf08be4b,
+  impactEffect: {fileID: 1723818010802918, guid: 3e7c3ad71214c404e880e430f16c2e6a,
     type: 3}
 --- !u!1 &1399422420123134
 GameObject:

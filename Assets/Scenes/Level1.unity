@@ -201,8 +201,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 955014269}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &60604847
-BoxCollider2D:
+--- !u!58 &60604847
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -215,18 +215,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.8
 --- !u!4 &60604849 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 401782, guid: c6a5fbda98111fe47958dcde4e4a3c21,
@@ -612,8 +602,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1692314884}
   m_PrefabAsset: {fileID: 0}
---- !u!61 &241925752
-BoxCollider2D:
+--- !u!58 &241925752
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -626,18 +616,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.8
 --- !u!4 &241925754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 475480, guid: 0c3c6035237fffd49aa7fc71e64f4bd8,
@@ -10711,12 +10691,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b140c7bb9cd30448d61c7e945bedb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gainSpell: 0
+  gainSpell: 1
   cooldownTime: 1
-  castTime: 0.8
+  casting: 0
+  castTime: 3
   spell: {fileID: 1846563170864394, guid: 3bbebb6123d7fdd4fa718a9ea192c837, type: 3}
   firePoint: {fileID: 1820667605}
-  bulletSpeed: 25
+  spellSpeed: 25
+  player: {fileID: 553758269}
+--- !u!114 &553758275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553758269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be36d729c31cbee449de8ef4a17be97e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gainSpell: 1
+  cooldownTime: 1
+  castingFireBall: 0
+  castTimeFireBall: 2
+  spell: {fileID: 1157088314812518, guid: 2b98800eb2d081f4fa7a3598af604760, type: 3}
+  firePoint: {fileID: 1820667605}
+  spellSpeed: 30
   player: {fileID: 553758269}
 --- !u!4 &583823903 stripped
 Transform:

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class Meteor : MonoBehaviour
 {
-    Meteor meteor;
+    Fireball fireball;
     public bool gainSpell = false;
 
     public float cooldownTime = 0.8f;
     private float nextFireTime = 0f;
 
-    public bool castingFireBall = false;
-    public float castTimeFireBall;
-    private float timerCastTimeFireBall;
+    public bool casting = false;
+    public float castTime;
+    private float timerCastTime;
 
 
     public GameObject spell;
@@ -25,8 +25,8 @@ public class Fireball : MonoBehaviour
 
     private void Start()
     {
-        timerCastTimeFireBall = castTimeFireBall;
-        meteor = GetComponent<Meteor>();
+        timerCastTime = castTime;
+        fireball = GetComponent<Fireball>();
     }
 
     void Update()
@@ -37,9 +37,9 @@ public class Fireball : MonoBehaviour
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
         if (gainSpell == true)
         {
-            if(meteor.casting == false)
+            if(fireball.castingFireBall == false)
             {
-                if (timerCastTimeFireBall <= 0.0f)
+                if (timerCastTime <= 0.0f)
                 {
                     GameObject spellClone = Instantiate(spell);
                     spellClone.transform.position = firePoint.position;
@@ -47,19 +47,19 @@ public class Fireball : MonoBehaviour
 
                     spellClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * spellSpeed;
                     nextFireTime = Time.time + cooldownTime;
-                    timerCastTimeFireBall = castTimeFireBall;
-                    castingFireBall = false;
+                    timerCastTime = castTime;
+                    casting = false;
                 }
                 if (Time.time > nextFireTime)
                 {
-                    if(castingFireBall == true)
+                    if (casting == true)
                     {
-                        timerCastTimeFireBall -= Time.deltaTime;
+                        timerCastTime -= Time.deltaTime;
                     }
-                    if (Input.GetKeyDown(KeyCode.Alpha1))
+                    if (Input.GetKeyDown(KeyCode.Alpha2))
                     {
-                        Debug.Log(castTimeFireBall);
-                        castingFireBall = true;
+                        Debug.Log(castTime);
+                        casting = true;
                     }
                 }
             }
