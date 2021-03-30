@@ -5,7 +5,6 @@ using UnityEngine;
 public class Meteor : MonoBehaviour
 {
     Fireball fireball;
-    public bool gainSpell = false;
 
     public float cooldownTime = 0.8f;
     private float nextFireTime = 0f;
@@ -14,6 +13,7 @@ public class Meteor : MonoBehaviour
     public float castTime;
     private float timerCastTime;
 
+    [SerializeField] ParticleSystem castParticles;
 
     public GameObject spell;
     public Transform firePoint;
@@ -23,10 +23,13 @@ public class Meteor : MonoBehaviour
     Vector2 lookDirection;
     float lookAngle;
 
+    QuestPickUp pickUp;
+
     private void Start()
     {
         timerCastTime = castTime;
         fireball = GetComponent<Fireball>();
+        pickUp = GetComponent<QuestPickUp>();
     }
 
     void Update()
@@ -35,7 +38,7 @@ public class Meteor : MonoBehaviour
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
-        if (gainSpell == true)
+        if (pickUp.gainSpell == true)
         {
             if(fireball.castingFireBall == false)
             {
@@ -49,6 +52,7 @@ public class Meteor : MonoBehaviour
                     nextFireTime = Time.time + cooldownTime;
                     timerCastTime = castTime;
                     casting = false;
+                    castParticles.Stop();
                 }
                 if (Time.time > nextFireTime)
                 {
@@ -58,21 +62,12 @@ public class Meteor : MonoBehaviour
                     }
                     if (Input.GetKeyDown(KeyCode.Alpha2))
                     {
-                        Debug.Log(castTime);
                         casting = true;
+                        castParticles.Play();
                     }
                 }
             }
             
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "TutorialWizzard")
-        {
-            gainSpell = true;
-            Debug.Log(gainSpell);
         }
     }
 }

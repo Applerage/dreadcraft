@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fireball : MonoBehaviour
+public class FireLaser : MonoBehaviour
 {
     Meteor meteor;
+    Fireball fireball;
 
     public float cooldownTime = 0.8f;
     private float nextFireTime = 0f;
 
-    public bool castingFireBall = false;
-    public float castTimeFireBall;
-    private float timerCastTimeFireBall;
+    public bool castinglaser = false;
+    public float castTimelaser = 1f;
+    private float timerCastTimelaser;
+
 
     [SerializeField] ParticleSystem castParticles;
 
@@ -27,8 +29,9 @@ public class Fireball : MonoBehaviour
 
     private void Start()
     {
-        timerCastTimeFireBall = castTimeFireBall;
+        timerCastTimelaser = castTimelaser;
         meteor = GetComponent<Meteor>();
+        fireball = GetComponent<Fireball>();
         pickUp = GetComponent<QuestPickUp>();
     }
 
@@ -40,9 +43,10 @@ public class Fireball : MonoBehaviour
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
         if (pickUp.gainSpell == true)
         {
-            if(meteor.casting == false)
+            if (meteor.casting == false && fireball.castingFireBall == false)
             {
-                if (timerCastTimeFireBall <= 0.0f)
+                Debug.Log("Picked up the spell");
+                if (timerCastTimelaser <= 0)
                 {
                     GameObject spellClone = Instantiate(spell);
                     spellClone.transform.position = firePoint.position;
@@ -50,25 +54,24 @@ public class Fireball : MonoBehaviour
 
                     spellClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * spellSpeed;
                     nextFireTime = Time.time + cooldownTime;
-                    timerCastTimeFireBall = castTimeFireBall;
-                    castingFireBall = false;
+                    timerCastTimelaser = castTimelaser;
+                    castinglaser = false;
                     castParticles.Stop();
                 }
                 if (Time.time > nextFireTime)
                 {
-                    if(castingFireBall == true)
+                    if (castinglaser == true)
                     {
-                        timerCastTimeFireBall -= Time.deltaTime;
+                        timerCastTimelaser -= Time.deltaTime;
                     }
-                    if (Input.GetKeyDown(KeyCode.Alpha1))
+                    if (Input.GetKeyDown(KeyCode.Alpha3))
                     {
-                        castingFireBall = true;
+                        castinglaser = true;
                         castParticles.Play();
                     }
                 }
             }
-            
+
         }
     }
-    
 }
