@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 114518502963057642}
   - component: {fileID: 7152466545444071523}
   - component: {fileID: 3977783297336837359}
-  - component: {fileID: -8859505780674211340}
+  - component: {fileID: 4997768960027582441}
   m_Layer: 0
   m_Name: vfx_Projectile_Comet_Blue
   m_TagString: Bullet
@@ -97,7 +97,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-8859505780674211340
+--- !u!114 &4997768960027582441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,8 +109,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de90278e1036ca74996e6f7026f34670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  impactEffect: {fileID: 1846563170864394, guid: 3bbebb6123d7fdd4fa718a9ea192c837,
+  impactEffect: {fileID: 1576947433937734, guid: 3a1ab18e6861a8940aa332e72f024271,
     type: 3}
+  da: {fileID: 0}
+  damage: 40
 --- !u!1 &1233283920887408
 GameObject:
   m_ObjectHideFlags: 0

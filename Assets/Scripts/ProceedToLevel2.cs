@@ -22,7 +22,7 @@ public class ProceedToLevel2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (da.count >= 5 && collision.gameObject.tag == "Door")
+        if (da.isOpen == true && collision.gameObject.tag == "Door")
         {
             Debug.Log("Proceed to level 2");
             spell.gainMeteor = false;

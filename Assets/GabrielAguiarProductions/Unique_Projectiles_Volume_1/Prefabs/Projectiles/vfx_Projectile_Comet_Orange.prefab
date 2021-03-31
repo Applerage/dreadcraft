@@ -23964,7 +23964,7 @@ GameObject:
   - component: {fileID: 114411837893322254}
   - component: {fileID: 4741839673840081362}
   - component: {fileID: 7961792995090097419}
-  - component: {fileID: -405006432758479705}
+  - component: {fileID: 2161922119321960275}
   m_Layer: 0
   m_Name: vfx_Projectile_Comet_Orange
   m_TagString: Bullet
@@ -24049,7 +24049,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!114 &-405006432758479705
+--- !u!114 &2161922119321960275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24063,6 +24063,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 1576947433937734, guid: 3a1ab18e6861a8940aa332e72f024271,
     type: 3}
+  da: {fileID: 0}
+  damage: 75
 --- !u!1 &1915593564425164
 GameObject:
   m_ObjectHideFlags: 0

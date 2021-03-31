@@ -5,13 +5,12 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public GameObject impactEffect;
-    public DoorAppear da;
     private Rigidbody2D rb;
+    public float damage = 20;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        da = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorAppear>();
     }
 
     // Update is called once per frame
@@ -23,15 +22,20 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if(collision.gameObject.tag == "Dummy")
+        if (collision.gameObject.tag == "Dummy")
         {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
-            da.count++;
-            da.openDoor();
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }
-        
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Instantiate(impactEffect, transform.position, Quaternion.identity);
+            
+            Destroy(gameObject);
+            collision.gameObject.GetComponent<EnemyHp>().takeDamage(damage);
+        }
     }
 
     

@@ -21,7 +21,7 @@ public class DoorAppear : MonoBehaviour
 
     public void openDoor()
     {
-        if(count >= 5)
+        if(count >= 3)
         {
             particles.Play();
             isOpen = true;
