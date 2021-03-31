@@ -60,7 +60,7 @@ public class Meteor : MonoBehaviour
                     {
                         timerCastTime -= Time.deltaTime;
                     }
-                    if (Input.GetKeyDown(KeyCode.Alpha2))
+                    if (Input.GetKeyDown(KeyCode.Alpha3))
                     {
                         casting = true;
                         castParticles.Play();

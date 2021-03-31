@@ -60,7 +60,7 @@ public class Fireball : MonoBehaviour
                     {
                         timerCastTimeFireBall -= Time.deltaTime;
                     }
-                    if (Input.GetKeyDown(KeyCode.Alpha1))
+                    if (Input.GetKeyDown(KeyCode.Alpha2))
                     {
                         castingFireBall = true;
                         castParticles.Play();

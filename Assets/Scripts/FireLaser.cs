@@ -67,7 +67,7 @@ public class FireLaser : MonoBehaviour
                     {
                         timerCastTimelaser -= Time.deltaTime;
                     }
-                    if (Input.GetKeyDown(KeyCode.Alpha3))
+                    if (Input.GetKeyDown(KeyCode.Alpha1))
                     {
                         castinglaser = true;
                         castParticles.Play();
