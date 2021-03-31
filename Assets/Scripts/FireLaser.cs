@@ -46,7 +46,6 @@ public class FireLaser : MonoBehaviour
         {
             if (meteor.casting == false && fireball.castingFireBall == false)
             {
-                Debug.Log("Picked up the spell");
                 if (timerCastTimelaser <= 0)
                 {
                     GameObject spellClone1 = Instantiate(spell);

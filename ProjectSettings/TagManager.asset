@@ -11,6 +11,7 @@ TagManager:
   - TutorialWizzard
   - Chest
   - TutorialWizzard1
+  - Door
   layers:
   - Default
   - TransparentFX

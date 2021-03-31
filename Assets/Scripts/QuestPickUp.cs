@@ -12,6 +12,8 @@ public class QuestPickUp : MonoBehaviour
     public GameObject potion1;
     public GameObject potion2;
 
+    public Projectile pj;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "TutorialWizzard")
