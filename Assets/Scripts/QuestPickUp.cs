@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class QuestPickUp : MonoBehaviour
 {
-    public bool gainSpell = false;
-    public GameObject questCompleted;
+    public bool gainFireBall = false;
+    public bool gainMeteor = false;
+    public bool gainLaser = false;
+    public ParticleSystem potionParticles;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "TutorialWizzard")
         {
-            gainSpell = true;
-            Destroy(questCompleted);
+            gainFireBall = true;
+            gainMeteor = true;
+            potionParticles.Stop();
+        }
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Item")
+        {
+            gainLaser = true;
+            Destroy(collision.gameObject);
         }
     }
 }

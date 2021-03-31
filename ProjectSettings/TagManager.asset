@@ -9,6 +9,7 @@ TagManager:
   - Dummy
   - Item
   - TutorialWizzard
+  - Chest
   layers:
   - Default
   - TransparentFX

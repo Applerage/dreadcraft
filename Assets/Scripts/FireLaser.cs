@@ -25,6 +25,7 @@ public class FireLaser : MonoBehaviour
     Vector2 lookDirection;
     float lookAngle;
 
+
     QuestPickUp pickUp;
 
     private void Start()
@@ -41,23 +42,25 @@ public class FireLaser : MonoBehaviour
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
-        if (pickUp.gainSpell == true)
+        if (pickUp.gainLaser == true)
         {
             if (meteor.casting == false && fireball.castingFireBall == false)
             {
                 Debug.Log("Picked up the spell");
                 if (timerCastTimelaser <= 0)
                 {
-                    GameObject spellClone = Instantiate(spell);
-                    spellClone.transform.position = firePoint.position;
-                    spellClone.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
+                    GameObject spellClone1 = Instantiate(spell);
+                    spellClone1.transform.position = firePoint.position;
+                    spellClone1.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
 
-                    spellClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * spellSpeed;
+                    spellClone1.GetComponent<Rigidbody2D>().velocity = firePoint.right * spellSpeed;
+                    
                     nextFireTime = Time.time + cooldownTime;
                     timerCastTimelaser = castTimelaser;
                     castinglaser = false;
                     castParticles.Stop();
                 }
+
                 if (Time.time > nextFireTime)
                 {
                     if (castinglaser == true)

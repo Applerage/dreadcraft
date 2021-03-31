@@ -38,7 +38,7 @@ public class Meteor : MonoBehaviour
         lookAngle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
-        if (pickUp.gainSpell == true)
+        if (pickUp.gainMeteor == true)
         {
             if(fireball.castingFireBall == false)
             {
