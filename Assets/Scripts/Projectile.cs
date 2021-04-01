@@ -16,20 +16,20 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag != "Player" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "Door")
+        if(!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Item") && !collision.gameObject.CompareTag("Door"))
         {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
 
-        if (collision.gameObject.tag == "Dummy")
+        if (collision.gameObject.CompareTag("Dummy"))
         {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
             

@@ -14,13 +14,13 @@ public class SpellGain : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("TutorialWizzard"))
+        if (collision.gameObject.CompareTag("TutorialWizzard") && potion1 != null)
         {
             gainLaser = true;
             Destroy(potion1);
             potionParticles1.Stop();
         }
-        if (collision.gameObject.CompareTag("TutorialWizzard1"))
+        if (collision.gameObject.CompareTag("TutorialWizzard1") && potion2 != null)
         {
             gainFireBall = true;
             Destroy(potion2);
