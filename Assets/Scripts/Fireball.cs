@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Fireball : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class Fireball : MonoBehaviour
     public bool castingFireBall = false;
     public float castTimeFireBall;
     private float timerCastTimeFireBall;
+
+    public bool isOnCd = false;
+    private float cooldownTimer;
+
+    public Image fireBallLoading;
+    public Text fireBallCd;
 
     [SerializeField] ParticleSystem castParticles;
 
@@ -30,6 +37,7 @@ public class Fireball : MonoBehaviour
         timerCastTimeFireBall = castTimeFireBall;
         meteor = GetComponent<Meteor>();
         pickUp = GetComponent<QuestPickUp>();
+        cooldownTimer = cooldownTime;
     }
 
     void Update()
@@ -40,6 +48,7 @@ public class Fireball : MonoBehaviour
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
         if (pickUp.gainFireBall == true)
         {
+            fireBallLoading.fillAmount = 0;
             if(meteor.casting == false)
             {
                 if (timerCastTimeFireBall <= 0.0f)
@@ -50,6 +59,7 @@ public class Fireball : MonoBehaviour
 
                     spellClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * spellSpeed;
                     nextFireTime = Time.time + cooldownTime;
+                    cooldownTimer = cooldownTime;
                     timerCastTimeFireBall = castTimeFireBall;
                     castingFireBall = false;
                     castParticles.Stop();
@@ -65,9 +75,29 @@ public class Fireball : MonoBehaviour
                         castingFireBall = true;
                         castParticles.Play();
                     }
+                    isOnCd = false;
+                }
+                
+            }
+            if (Time.time <= nextFireTime)
+            {
+                isOnCd = true;
+
+            }
+            if (isOnCd)
+            {
+                cooldownTimer -= Time.deltaTime;
+                fireBallLoading.fillAmount = cooldownTimer / cooldownTime;
+                fireBallCd.text = (cooldownTimer % cooldownTime).ToString();
+                if (fireBallLoading.fillAmount <= 0.05)
+                {
+                    fireBallCd.text = "";
                 }
             }
-            
+        }
+        else
+        {
+            fireBallLoading.fillAmount = 1;
         }
     }
     

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Meteor : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class Meteor : MonoBehaviour
     public bool casting = false;
     public float castTime;
     private float timerCastTime;
+
+    public bool isOnCd = false;
+    private float cooldownTimer;
+
+    public Image meteorLoading;
+    public Text meteorCd;
 
     [SerializeField] ParticleSystem castParticles;
 
@@ -30,6 +37,7 @@ public class Meteor : MonoBehaviour
         timerCastTime = castTime;
         fireball = GetComponent<Fireball>();
         pickUp = GetComponent<QuestPickUp>();
+        cooldownTimer = cooldownTime;
     }
 
     void Update()
@@ -40,7 +48,8 @@ public class Meteor : MonoBehaviour
         firePoint.rotation = Quaternion.Euler(0, 0, lookAngle);
         if (pickUp.gainMeteor == true)
         {
-            if(fireball.castingFireBall == false)
+            meteorLoading.fillAmount = 0;
+            if (fireball.castingFireBall == false)
             {
                 if (timerCastTime <= 0.0f)
                 {
@@ -50,6 +59,7 @@ public class Meteor : MonoBehaviour
 
                     spellClone.GetComponent<Rigidbody2D>().velocity = firePoint.right * spellSpeed;
                     nextFireTime = Time.time + cooldownTime;
+                    cooldownTimer = cooldownTime;
                     timerCastTime = castTime;
                     casting = false;
                     castParticles.Stop();
@@ -65,9 +75,30 @@ public class Meteor : MonoBehaviour
                         casting = true;
                         castParticles.Play();
                     }
+                    isOnCd = false;
+                }
+                
+            }
+            if (Time.time <= nextFireTime)
+            {
+                isOnCd = true;
+
+            }
+            if (isOnCd)
+            {
+                cooldownTimer -= Time.deltaTime;
+                meteorLoading.fillAmount = cooldownTimer / cooldownTime;
+                meteorCd.text = (cooldownTimer % cooldownTime).ToString();
+                if (meteorLoading.fillAmount <= 0.05)
+                {
+                    meteorCd.text = "";
                 }
             }
-            
+
+        }
+        else
+        {
+            meteorLoading.fillAmount = 1;
         }
     }
 }
