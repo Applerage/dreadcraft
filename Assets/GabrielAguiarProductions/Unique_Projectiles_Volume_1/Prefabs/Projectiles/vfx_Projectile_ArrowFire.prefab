@@ -14417,8 +14417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 1723818010802918, guid: 3e7c3ad71214c404e880e430f16c2e6a,
     type: 3}
-  da: {fileID: 0}
-  damage: 15
+  damage: 35
 --- !u!1 &1399422420123134
 GameObject:
   m_ObjectHideFlags: 0
