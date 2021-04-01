@@ -29,7 +29,7 @@ public class Projectile : MonoBehaviour
             Destroy(collision.gameObject);
         }
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && !collision.gameObject.GetComponent<EnemyHp>().isDead)
         {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
             

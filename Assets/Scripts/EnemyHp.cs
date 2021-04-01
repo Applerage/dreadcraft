@@ -8,9 +8,11 @@ public class EnemyHp : MonoBehaviour
     private float currentHp;
     private DoorAppear da;
     private float animationTimer = 1f;
-    private bool isDead = false;
+    public bool isDead = false;
     public Animator animator;
-    
+    private int healthPercentage;
+    public float xpPoints;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class EnemyHp : MonoBehaviour
         {
             animationTimer = 1.8f;
         }
+        healthPercentage = Mathf.RoundToInt(currentHp / maxHp * 100);
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class EnemyHp : MonoBehaviour
         if (isDead)
         {
             animationTimer -= Time.deltaTime;
+
         }
 
         if (animationTimer <= 0)
@@ -41,12 +45,14 @@ public class EnemyHp : MonoBehaviour
     {
         currentHp -= amount;
         animator.Play("TakeDamage");
-        Debug.Log(currentHp);
+        healthPercentage = Mathf.RoundToInt(currentHp / maxHp * 100);
         if (currentHp <= 0)
         {
             isDead = true;
             animator.Play("Die");
             currentHp = 0;
+            healthPercentage = 0;
+            player.GetComponent<PlayerResources>().currentXp += xpPoints;
             da.count++;
             da.openDoor();
         }

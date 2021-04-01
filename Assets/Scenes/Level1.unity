@@ -20981,7 +20981,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 600
+  isDead: 0
   animator: {fileID: 419571713}
+  xpPoints: 750
+  player: {fileID: 553758269}
 --- !u!61 &419571712
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -21655,7 +21658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d6885a0846ef347a367ffbf34d9be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelNumber: 2
+  roomNumber: 2
 --- !u!114 &553758279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21668,8 +21671,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8997404a8581b4788eb58bd9908b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  level: 1
+  currentHealth: 0
+  maxHealth: 300
+  currentLevel: 1
+  maxLevel: 5
+  currentXp: 0
+  currentTalentPoints: 0
 --- !u!4 &583823903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4552130958034244, guid: 72fbaef77546dd1498e07955db8bc4b3,
@@ -22810,7 +22817,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 60
+  isDead: 0
   animator: {fileID: 875930542}
+  xpPoints: 300
+  player: {fileID: 553758269}
 --- !u!58 &875930541
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -23022,7 +23032,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 60
+  isDead: 0
   animator: {fileID: 946535016}
+  xpPoints: 300
+  player: {fileID: 553758269}
 --- !u!95 &946535016 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 9510704, guid: c6a5fbda98111fe47958dcde4e4a3c21,

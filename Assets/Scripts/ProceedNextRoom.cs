@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ProceedNextLevel : MonoBehaviour
+public class ProceedNextRoom : MonoBehaviour
 {
     private DoorAppear da;
     SpellGain spell;
 
-    public int levelNumber;
+    public int roomNumber;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +29,7 @@ public class ProceedNextLevel : MonoBehaviour
             Debug.Log("Proceed to level 2");
             spell.gainMeteor = false;
             spell.gainFireBall = false;
-            SceneManager.LoadScene($"Level{levelNumber}");
+            SceneManager.LoadScene($"Level{roomNumber}");
         }
     }
 }
