@@ -21715,7 +21715,6 @@ MonoBehaviour:
   potionParticles2: {fileID: 1208129534}
   potion1: {fileID: 1306436493}
   potion2: {fileID: 848213416}
-  pj: {fileID: -8859505780674211340, guid: 2b98800eb2d081f4fa7a3598af604760, type: 3}
 --- !u!114 &553758277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21751,7 +21750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2d6885a0846ef347a367ffbf34d9be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 0}
+  levelNumber: 2
 --- !u!114 &553758279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21764,8 +21763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8997404a8581b4788eb58bd9908b9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
-  level: 0
+  maxHealth: 100
+  level: 1
 --- !u!4 &583823903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4552130958034244, guid: 72fbaef77546dd1498e07955db8bc4b3,

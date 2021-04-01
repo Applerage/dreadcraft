@@ -30,13 +30,13 @@ public class Fireball : MonoBehaviour
     Vector2 lookDirection;
     float lookAngle;
 
-    QuestPickUp pickUp;
+    SpellGain pickUp;
 
     private void Start()
     {
         timerCastTimeFireBall = castTimeFireBall;
         meteor = GetComponent<Meteor>();
-        pickUp = GetComponent<QuestPickUp>();
+        pickUp = GetComponent<SpellGain>();
         cooldownTimer = cooldownTime;
     }
 

@@ -33,14 +33,14 @@ public class FireLaser : MonoBehaviour
     float lookAngle;
 
 
-    QuestPickUp pickUp;
+    SpellGain pickUp;
 
     private void Start()
     {
         timerCastTimelaser = castTimelaser;
         meteor = GetComponent<Meteor>();
         fireball = GetComponent<Fireball>();
-        pickUp = GetComponent<QuestPickUp>();
+        pickUp = GetComponent<SpellGain>();
         cooldownTimer = cooldownTime;
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestPickUp : MonoBehaviour
+public class SpellGain : MonoBehaviour
 {
     public bool gainFireBall = false;
     public bool gainMeteor = false;
@@ -12,17 +12,15 @@ public class QuestPickUp : MonoBehaviour
     public GameObject potion1;
     public GameObject potion2;
 
-    public Projectile pj;
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "TutorialWizzard")
+        if (collision.gameObject.CompareTag("TutorialWizzard"))
         {
             gainLaser = true;
             Destroy(potion1);
             potionParticles1.Stop();
         }
-        if (collision.gameObject.tag == "TutorialWizzard1")
+        if (collision.gameObject.CompareTag("TutorialWizzard1"))
         {
             gainFireBall = true;
             Destroy(potion2);
@@ -31,7 +29,7 @@ public class QuestPickUp : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Item")
+        if (collision.gameObject.CompareTag("Item"))
         {
             gainMeteor = true;
             Destroy(collision.gameObject);

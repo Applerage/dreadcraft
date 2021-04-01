@@ -30,13 +30,13 @@ public class Meteor : MonoBehaviour
     Vector2 lookDirection;
     float lookAngle;
 
-    QuestPickUp pickUp;
+    SpellGain pickUp;
 
     private void Start()
     {
         timerCastTime = castTime;
         fireball = GetComponent<Fireball>();
-        pickUp = GetComponent<QuestPickUp>();
+        pickUp = GetComponent<SpellGain>();
         cooldownTimer = cooldownTime;
     }
 
