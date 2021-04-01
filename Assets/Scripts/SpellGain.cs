@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,12 @@ public class SpellGain : MonoBehaviour
     public ParticleSystem potionParticles2;
     public GameObject potion1;
     public GameObject potion2;
+    private PlayerResources pr;
+
+    private void Start()
+    {
+        pr = GetComponent<PlayerResources>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,6 +38,8 @@ public class SpellGain : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Item"))
         {
+            pr.stamina += collision.gameObject.GetComponent<ItemStats>().stamina;
+            pr.onItemCollection();
             gainMeteor = true;
             Destroy(collision.gameObject);
         }

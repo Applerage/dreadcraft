@@ -32,11 +32,9 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy") && !collision.gameObject.GetComponent<EnemyHp>().isDead)
         {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
-            
             Destroy(gameObject);
             collision.gameObject.GetComponent<EnemyHp>().takeDamage(damage);
+            //TODO projectile damage formula
         }
     }
-
-    
 }

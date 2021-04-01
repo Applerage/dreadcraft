@@ -21673,10 +21673,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   maxHealth: 300
+  isFullHealth: 0
   currentLevel: 1
   maxLevel: 5
   currentXp: 0
   currentTalentPoints: 0
+  stamina: 10
+  intellect: 10
 --- !u!4 &583823903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4552130958034244, guid: 72fbaef77546dd1498e07955db8bc4b3,
@@ -46529,6 +46532,7 @@ GameObject:
   - component: {fileID: 2141757926}
   - component: {fileID: 2141757928}
   - component: {fileID: 2141757929}
+  - component: {fileID: 2141757930}
   m_Layer: 0
   m_Name: Staff
   m_TagString: Item
@@ -46638,3 +46642,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2141757930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141757925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8e06e512b372e45a3de3a50ab3c741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intellect: 8
+  stamina: 8
