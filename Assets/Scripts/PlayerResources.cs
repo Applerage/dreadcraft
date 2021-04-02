@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerResources : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class PlayerResources : MonoBehaviour
     private bool particlesActive = false;
     private bool playParticles = false;
 
+    public Image expBar;
+    public Image hpBar;
+    public Text levelText;
+
     public float currentXp;
     private float xpNeededToLevel;
     public int currentTalentPoints;
@@ -24,8 +29,8 @@ public class PlayerResources : MonoBehaviour
     public float intellect = 10;
     
     /* Percentage (%) values */
-    private int healthPercentage;
-    private int xpPercentage;
+    private float healthPercentage;
+    private float xpPercentage;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,6 +81,9 @@ public class PlayerResources : MonoBehaviour
         }
         OnLevelUp();
         OnLevelUpAnimation();
+        expBar.fillAmount = xpPercentage / 100;
+        hpBar.fillAmount = healthPercentage / 100;
+        levelText.text = $"{currentLevel}";
         
 
         

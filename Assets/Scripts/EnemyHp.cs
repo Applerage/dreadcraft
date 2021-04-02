@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHp : MonoBehaviour
 {
@@ -10,9 +11,12 @@ public class EnemyHp : MonoBehaviour
     private float animationTimer = 1f;
     public bool isDead = false;
     public Animator animator;
-    private int healthPercentage;
+    private float healthPercentage;
     public float xpPoints;
     public GameObject player;
+
+    public Image healthBar;
+    public Image healthBarBorder;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +50,8 @@ public class EnemyHp : MonoBehaviour
         currentHp -= amount;
         animator.Play("TakeDamage");
         healthPercentage = Mathf.RoundToInt(currentHp / maxHp * 100);
+        healthBar.fillAmount = healthPercentage / 100;
+        Debug.Log(healthPercentage/100);
         if (currentHp <= 0)
         {
             isDead = true;
@@ -55,6 +61,8 @@ public class EnemyHp : MonoBehaviour
             player.GetComponent<PlayerResources>().currentXp += xpPoints;
             da.count++;
             da.openDoor();
+            Destroy(healthBar);
+            Destroy(healthBarBorder);
         }
     }
 }
