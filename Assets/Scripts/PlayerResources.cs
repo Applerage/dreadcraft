@@ -11,6 +11,10 @@ public class PlayerResources : MonoBehaviour
     
     public float currentLevel;
     public float maxLevel;
+    public ParticleSystem levelParticles;
+    private float levelParticlesTimer = 1.5f;
+    private bool particlesActive = false;
+    private bool playParticles = false;
 
     public float currentXp;
     private float xpNeededToLevel;
@@ -71,6 +75,12 @@ public class PlayerResources : MonoBehaviour
                 break;
         }
         OnLevelUp();
+        OnLevelUpAnimation();
+        
+
+        
+
+        
 
         /* Test level up */
         if (Input.GetKeyDown(KeyCode.R))
@@ -97,6 +107,8 @@ public class PlayerResources : MonoBehaviour
             intellect += 0.5f * intellect;
             maxHealth = Mathf.RoundToInt(maxHealth + stamina / maxHealth * 200);
             currentHealth = maxHealth;
+            particlesActive = true;
+            playParticles = true;
         }
 
         if (currentLevel >= maxLevel)
@@ -105,6 +117,25 @@ public class PlayerResources : MonoBehaviour
         }
     }
 
+    void OnLevelUpAnimation()
+    {
+        if (particlesActive)
+        {
+            levelParticlesTimer -= Time.deltaTime;
+            if (playParticles)
+            {
+                levelParticles.Play();
+                playParticles = false;
+            }
+            Debug.Log(levelParticlesTimer);
+            if (levelParticlesTimer <= 0)
+            {
+                levelParticles.Stop();
+                particlesActive = false;
+                levelParticlesTimer = 1.5f;
+            }
+        }
+    }
     public void onItemCollection()
     {
         maxHealth = Mathf.RoundToInt(maxHealth + stamina / maxHealth * 200);
