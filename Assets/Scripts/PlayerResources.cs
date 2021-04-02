@@ -9,6 +9,9 @@ public class PlayerResources : MonoBehaviour
     public float currentHealth;
     public float maxHealth;
     public bool isFullHealth;
+    private float lives = 2;
+    public Image lifeImage1;
+    public Image lifeImage2;
     
     public float currentLevel;
     public float maxLevel;
@@ -85,15 +88,10 @@ public class PlayerResources : MonoBehaviour
         hpBar.fillAmount = healthPercentage / 100;
         levelText.text = $"{currentLevel}";
         
-
-        
-
-        
-
-        /* Test level up */
+        /* Test Taking Damage */
         if (Input.GetKeyDown(KeyCode.R))
         {
-            takeDamage(100);
+            TakeDamage(100);
         }
     }
 
@@ -145,14 +143,28 @@ public class PlayerResources : MonoBehaviour
         }
     }
     
-    public void takeDamage(float amount)
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
         healthPercentage = Mathf.RoundToInt(currentHealth / maxHealth * 100);
         hpBar.fillAmount = healthPercentage / 100;
         if (currentHealth <= 0)
         {
-            currentHealth = 0;
+            currentHealth = maxHealth;
+            lives--;
+            if (lives < 0)
+            {
+                currentHealth = 0;
+            }
+            else if (lives == 1)
+            {
+                Destroy(lifeImage1);
+            }
+            else if (lives == 0)
+            {
+                Destroy(lifeImage2);
+            }
+            
         }
     }
 }
