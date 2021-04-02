@@ -38,6 +38,7 @@ public class PlayerResources : MonoBehaviour
         healthPercentage = Mathf.RoundToInt(currentHealth / maxHealth * 100);
         xpPercentage = Mathf.RoundToInt(currentXp / xpNeededToLevel * 100);
 
+
         if (healthPercentage == 100)
         {
             isFullHealth = true;
@@ -80,6 +81,7 @@ public class PlayerResources : MonoBehaviour
             Debug.Log("current health "+ currentHealth);
             Debug.Log("max health "+ maxHealth);
             Debug.Log("stamina " + stamina);
+            Debug.Log("intellect " + intellect);
             Debug.Log("health %  " + healthPercentage);
         }
     }
@@ -91,6 +93,10 @@ public class PlayerResources : MonoBehaviour
             currentXp = currentXp - xpNeededToLevel;
             currentLevel++;
             currentTalentPoints++;
+            stamina += 0.5f * stamina;
+            intellect += 0.5f * intellect;
+            maxHealth = Mathf.RoundToInt(maxHealth + stamina / maxHealth * 200);
+            currentHealth = maxHealth;
         }
 
         if (currentLevel >= maxLevel)
