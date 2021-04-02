@@ -51,7 +51,6 @@ public class EnemyHp : MonoBehaviour
         animator.Play("TakeDamage");
         healthPercentage = Mathf.RoundToInt(currentHp / maxHp * 100);
         healthBar.fillAmount = healthPercentage / 100;
-        Debug.Log(healthPercentage/100);
         if (currentHp <= 0)
         {
             isDead = true;

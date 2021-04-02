@@ -93,14 +93,7 @@ public class PlayerResources : MonoBehaviour
         /* Test level up */
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Debug.Log("xp percentage " + xpPercentage);
-            Debug.Log("current level " + currentLevel);
-            Debug.Log("talent points "+ currentTalentPoints);
-            Debug.Log("current health "+ currentHealth);
-            Debug.Log("max health "+ maxHealth);
-            Debug.Log("stamina " + stamina);
-            Debug.Log("intellect " + intellect);
-            Debug.Log("health %  " + healthPercentage);
+            takeDamage(100);
         }
     }
 
@@ -135,7 +128,6 @@ public class PlayerResources : MonoBehaviour
                 levelParticles.Play();
                 playParticles = false;
             }
-            Debug.Log(levelParticlesTimer);
             if (levelParticlesTimer <= 0)
             {
                 levelParticles.Stop();
@@ -150,6 +142,17 @@ public class PlayerResources : MonoBehaviour
         if (isFullHealth)
         {
             currentHealth = maxHealth;
+        }
+    }
+    
+    public void takeDamage(float amount)
+    {
+        currentHealth -= amount;
+        healthPercentage = Mathf.RoundToInt(currentHealth / maxHealth * 100);
+        hpBar.fillAmount = healthPercentage / 100;
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
         }
     }
 }
