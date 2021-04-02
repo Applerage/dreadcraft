@@ -7,10 +7,13 @@ public class Projectile : MonoBehaviour
     public GameObject impactEffect;
     private Rigidbody2D rb;
     public float damage = 20;
+
+    private PlayerResources playerResources;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerResources = GameObject.FindWithTag("Player").GetComponent<PlayerResources>();
     }
 
     // Update is called once per frame
@@ -33,7 +36,9 @@ public class Projectile : MonoBehaviour
         {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            damage = damage + playerResources.intellect * 0.5f;
             collision.gameObject.GetComponent<EnemyHp>().takeDamage(damage);
+            Debug.Log(damage);
             //TODO projectile damage formula
         }
     }
