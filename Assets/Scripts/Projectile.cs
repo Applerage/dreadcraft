@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Projectile : MonoBehaviour
 {
@@ -8,12 +10,19 @@ public class Projectile : MonoBehaviour
     private Rigidbody2D rb;
     public float damage = 20;
 
+    
+
     private PlayerResources playerResources;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerResources = GameObject.FindWithTag("Player").GetComponent<PlayerResources>();
+    }
+
+    private void Update()
+    {
+        
     }
 
     // Update is called once per frame
@@ -38,7 +47,6 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
             damage = damage + playerResources.intellect * 0.5f;
             collision.gameObject.GetComponent<EnemyHp>().takeDamage(damage);
-            Debug.Log(damage);
             //TODO projectile damage formula
         }
     }

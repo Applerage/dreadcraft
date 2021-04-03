@@ -14,6 +14,10 @@ public class EnemyHp : MonoBehaviour
     private float healthPercentage;
     public float xpPoints;
     public GameObject player;
+    public Text damageText;
+    private float damageTimer;
+    public float damageDuration;
+    private bool tookDamage = false;
 
     public Image healthBar;
     public Image healthBarBorder;
@@ -28,6 +32,7 @@ public class EnemyHp : MonoBehaviour
             animationTimer = 1.8f;
         }
         healthPercentage = Mathf.RoundToInt(currentHp / maxHp * 100);
+        damageTimer = damageDuration;
     }
 
     // Update is called once per frame
@@ -43,14 +48,27 @@ public class EnemyHp : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        if (tookDamage)
+        {
+            damageTimer -= Time.deltaTime;
+            if (damageTimer <= 0)
+            {
+                damageText.text = "";
+                tookDamage = false;
+                damageTimer = damageDuration;
+            }
+        }
     }
 
     public void takeDamage(float amount)
     {
+        tookDamage = true;
         currentHp -= amount;
         animator.Play("TakeDamage");
         healthPercentage = Mathf.RoundToInt(currentHp / maxHp * 100);
         healthBar.fillAmount = healthPercentage / 100;
+        damageText.text = $"-{Mathf.RoundToInt(amount)}";
         if (currentHp <= 0)
         {
             isDead = true;

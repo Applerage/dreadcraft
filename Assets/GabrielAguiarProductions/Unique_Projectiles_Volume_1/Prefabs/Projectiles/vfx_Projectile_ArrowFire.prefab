@@ -14418,6 +14418,8 @@ MonoBehaviour:
   impactEffect: {fileID: 1723818010802918, guid: 3e7c3ad71214c404e880e430f16c2e6a,
     type: 3}
   damage: 35
+  damageText: {fileID: 0}
+  damageTimer: 0.8
 --- !u!1 &1399422420123134
 GameObject:
   m_ObjectHideFlags: 0
