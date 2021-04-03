@@ -22007,13 +22007,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1725889547}
   onStart: 0
-  onStartTimer: 5
+  onStartTimer: 6.5
   onWizardCollision: 0
-  onWizardTimer: 6.5
+  onWizardTimer: 8
   onWizard1Collision: 0
-  onWizard1Timer: 6.5
+  onWizard1Timer: 8
   onItemPickUp: 0
-  onItemTimer: 6.5
+  onItemTimer: 8
 --- !u!4 &583823903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4552130958034244, guid: 72fbaef77546dd1498e07955db8bc4b3,
