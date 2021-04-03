@@ -13,21 +13,22 @@ public class SpellGain : MonoBehaviour
     public GameObject potion1;
     public GameObject potion2;
     private PlayerResources pr;
-
+    private TutorialDialogue td;
     private void Start()
     {
         pr = GetComponent<PlayerResources>();
+        td = GetComponent<TutorialDialogue>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("TutorialWizzard") && potion1 != null)
+        if (collision.gameObject.CompareTag("TutorialWizzard") && potion1 != null && !td.onStart && !td.onWizard1Collision && !td.onItemPickUp)
         {
             gainLaser = true;
             Destroy(potion1);
             potionParticles1.Stop();
         }
-        if (collision.gameObject.CompareTag("TutorialWizzard1") && potion2 != null)
+        if (collision.gameObject.CompareTag("TutorialWizzard1") && potion2 != null && !td.onStart && !td.onWizardCollision && !td.onItemPickUp)
         {
             gainFireBall = true;
             Destroy(potion2);
@@ -36,7 +37,7 @@ public class SpellGain : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Item"))
+        if (collision.gameObject.CompareTag("Item") && !td.onStart && !td.onWizard1Collision && !td.onWizardCollision)
         {
             pr.stamina += collision.gameObject.GetComponent<ItemStats>().stamina;
             pr.intellect += collision.gameObject.GetComponent<ItemStats>().intellect;
