@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ public class PlayerResources : MonoBehaviour
     private float lives = 2;
     public Image lifeImage1;
     public Image lifeImage2;
+    public GameObject blood;
     
     public float currentLevel;
     public float maxLevel;
@@ -150,6 +152,7 @@ public class PlayerResources : MonoBehaviour
         hpBar.fillAmount = healthPercentage / 100;
         if (currentHealth <= 0)
         {
+            Instantiate(blood, gameObject.transform.position, Quaternion.identity);
             currentHealth = maxHealth;
             lives--;
             if (lives < 0)

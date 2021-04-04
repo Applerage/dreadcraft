@@ -21985,6 +21985,7 @@ MonoBehaviour:
   isFullHealth: 0
   lifeImage1: {fileID: 1643209888}
   lifeImage2: {fileID: 875962057}
+  blood: {fileID: 1339241070378346, guid: 71269bcb55a643f4996ddca238ddedc5, type: 3}
   currentLevel: 1
   maxLevel: 5
   levelParticles: {fileID: 1591658418}
@@ -22009,13 +22010,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1725889547}
   onStart: 0
-  onStartTimer: 0
+  onStartTimer: 6.5
   onWizardCollision: 0
-  onWizardTimer: 0
+  onWizardTimer: 8
   onWizard1Collision: 0
-  onWizard1Timer: 0
+  onWizard1Timer: 8
   onItemPickUp: 0
-  onItemTimer: 0
+  onItemTimer: 8
 --- !u!4 &583823903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4552130958034244, guid: 72fbaef77546dd1498e07955db8bc4b3,
@@ -36124,7 +36125,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 7
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -36821,7 +36822,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 150
+      scalar: 300
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -41715,7 +41716,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -41831,7 +41832,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.6
+      scalar: 0.4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -42412,7 +42413,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 100
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -42851,7 +42852,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 0, b: 0, a: 1}
-        key1: {r: 1, g: 0.9577489, b: 0, a: 0.5686275}
+        key1: {r: 0, g: 0, b: 0, a: 0.5686275}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
