@@ -19,6 +19,7 @@ public class Meteor : MonoBehaviour
 
     public Image meteorLoading;
     public Text meteorCd;
+    public Image fireOverlay;
 
     [SerializeField] ParticleSystem castParticles;
 
@@ -38,6 +39,7 @@ public class Meteor : MonoBehaviour
         fireball = GetComponent<Fireball>();
         pickUp = GetComponent<SpellGain>();
         cooldownTimer = cooldownTime;
+        fireOverlay.enabled = false;
     }
 
     void Update()
@@ -62,6 +64,7 @@ public class Meteor : MonoBehaviour
                     cooldownTimer = cooldownTime;
                     timerCastTime = castTime;
                     casting = false;
+                    fireOverlay.enabled = false;
                     castParticles.Stop();
                 }
                 if (Time.time > nextFireTime)
@@ -73,6 +76,7 @@ public class Meteor : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.Alpha3))
                     {
                         casting = true;
+                        fireOverlay.enabled = true;
                         castParticles.Play();
                     }
                     isOnCd = false;
@@ -89,7 +93,7 @@ public class Meteor : MonoBehaviour
                 cooldownTimer -= Time.deltaTime;
                 meteorLoading.fillAmount = cooldownTimer / cooldownTime;
                 meteorCd.text = (cooldownTimer % cooldownTime).ToString();
-                if (meteorLoading.fillAmount <= 0.05)
+                if (meteorLoading.fillAmount <= 0.03f)
                 {
                     meteorCd.text = "";
                 }

@@ -21,7 +21,6 @@ public class FireLaser : MonoBehaviour
     public Image firelaserLoading;
     public Text fireLaserCd;
 
-
     [SerializeField] ParticleSystem castParticles;
 
     public GameObject spell;

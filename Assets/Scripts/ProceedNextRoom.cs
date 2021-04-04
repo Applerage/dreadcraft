@@ -29,6 +29,7 @@ public class ProceedNextRoom : MonoBehaviour
             Debug.Log("Proceed to level 2");
             spell.gainMeteor = false;
             spell.gainFireBall = false;
+            spell.gainIncinerate = false;
             SceneManager.LoadScene($"Level{roomNumber}");
         }
     }

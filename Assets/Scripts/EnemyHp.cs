@@ -19,6 +19,8 @@ public class EnemyHp : MonoBehaviour
     public float damageDuration;
     private bool tookDamage = false;
 
+    public Incinerate incinerate;
+    
     public Image healthBar;
     public Image healthBarBorder;
 
@@ -27,6 +29,7 @@ public class EnemyHp : MonoBehaviour
     {
         currentHp = maxHp;
         da = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorAppear>();
+        incinerate = GameObject.FindGameObjectWithTag("Player").GetComponent<Incinerate>();
         if (maxHp >= 100)
         {
             animationTimer = 1.8f;
@@ -63,6 +66,10 @@ public class EnemyHp : MonoBehaviour
 
     public void takeDamage(float amount)
     {
+        if (incinerate.duration)
+        {
+            amount = amount * 2;
+        }
         tookDamage = true;
         currentHp -= amount;
         animator.Play("TakeDamage");

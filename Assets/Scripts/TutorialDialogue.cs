@@ -92,7 +92,7 @@ public class TutorialDialogue : MonoBehaviour
         {
             onItemPickUp = true;
             dialogue.text = 
-                "Oh what is this... a staff? I can feel the power... My intellect and stamina are increased! Amazing! Is that... a new spell? Wonder what it does...";
+                "Oh what is this... a staff? I can feel the power... My intellect and stamina are increased? Amazing! Is that... a new spell? Wonder what it does...";
         }
     }
 }

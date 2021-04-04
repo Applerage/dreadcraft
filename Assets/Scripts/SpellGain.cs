@@ -8,6 +8,7 @@ public class SpellGain : MonoBehaviour
     public bool gainFireBall = false;
     public bool gainMeteor = false;
     public bool gainLaser = false;
+    public bool gainIncinerate = false;
     public ParticleSystem potionParticles1;
     public ParticleSystem potionParticles2;
     public GameObject potion1;
@@ -43,6 +44,7 @@ public class SpellGain : MonoBehaviour
             pr.intellect += collision.gameObject.GetComponent<ItemStats>().intellect;
             pr.onItemCollection();
             gainMeteor = true;
+            gainIncinerate = true;
             Destroy(collision.gameObject);
         }
     }
