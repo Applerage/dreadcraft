@@ -13,8 +13,10 @@ public class Incinerate : MonoBehaviour
     private float nextFireTime = 0f;
 
     public bool duration = false;
-    public float durationTime;
-    private float timerDuration;
+    private float durationTime = 6f;
+    public float incinerateDuration;
+    private bool checkTalent = false;
+    private TalentTreeUnlock ttu;
 
     public bool isOnCd = false;
     private float cooldownTimer;
@@ -30,36 +32,39 @@ public class Incinerate : MonoBehaviour
 
     private void Start()
     {
-        timerDuration = durationTime;
+        incinerateDuration = durationTime;
         fireball = GetComponent<Fireball>();
         pickUp = GetComponent<SpellGain>();
         cooldownTimer = cooldownTime;
         fireOverlay.enabled = false;
         incinerateBuff.enabled = false;
         incinerateBuffDuration.text = "";
+        ttu = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TalentTreeUnlock>();
+        Debug.Log(incinerateDuration);
     }
 
     void Update()
     {
-        if (pickUp.gainIncinerate == true)
+        if (pickUp.gainIncinerate)
         {
             incinerateLoading.fillAmount = 0;
-                if (timerDuration <= 0.0f)
+                if (incinerateDuration <= 0.0f)
                 {
                     nextFireTime = Time.time + cooldownTime;
                     cooldownTimer = cooldownTime;
-                    timerDuration = durationTime;
+                    incinerateDuration = durationTime;
                     duration = false;
                     fireOverlay.enabled = false;
                     incinerateBuff.enabled = false;
                     incinerateBuffDuration.text = "";
+                    Debug.Log(incinerateDuration);
                 }
                 if (Time.time > nextFireTime)
                 {
                     if (duration)
                     {
-                        timerDuration -= Time.deltaTime;
-                        incinerateBuffDuration.text = $"{Mathf.RoundToInt(timerDuration)}";
+                        incinerateDuration -= Time.deltaTime;
+                        incinerateBuffDuration.text = $"{Mathf.RoundToInt(incinerateDuration)}";
                     }
                     if (Input.GetKeyDown(KeyCode.Alpha4))
                     {

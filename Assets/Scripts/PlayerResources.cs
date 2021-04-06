@@ -18,7 +18,7 @@ public class PlayerResources : MonoBehaviour
     public float currentLevel;
     public float maxLevel;
     public ParticleSystem levelParticles;
-    private float levelParticlesTimer = 1.5f;
+    private float levelParticlesTimer = 2f;
     private bool particlesActive = false;
     private bool playParticles = false;
 
@@ -41,8 +41,8 @@ public class PlayerResources : MonoBehaviour
     {
         currentHealth = maxHealth;
         currentLevel = 1;
-        maxLevel = 5;
-        currentTalentPoints = 50;
+        maxLevel = 10;
+        currentTalentPoints = 0;
         isFullHealth = true;
     }
 
@@ -93,7 +93,9 @@ public class PlayerResources : MonoBehaviour
         /* Test Taking Damage */
         if (Input.GetKeyDown(KeyCode.R))
         {
-            TakeDamage(100);
+            //TakeDamage(100);
+            Debug.Log(intellect);
+            Debug.Log(stamina);
         }
     }
 

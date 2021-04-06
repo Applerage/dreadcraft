@@ -13,7 +13,9 @@ TagManager:
   - TutorialWizzard1
   - Door
   - TalentPointsText
-  - SpellText
+  - GameManager
+  - ErrorTalentText
+  - LevelParticles
   layers:
   - Default
   - TransparentFX
