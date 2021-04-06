@@ -12,6 +12,7 @@ TagManager:
   - Chest
   - TutorialWizzard1
   - Door
+  - TalentPointsText
   layers:
   - Default
   - TransparentFX
