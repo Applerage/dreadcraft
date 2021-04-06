@@ -13,6 +13,7 @@ TagManager:
   - TutorialWizzard1
   - Door
   - TalentPointsText
+  - SpellText
   layers:
   - Default
   - TransparentFX

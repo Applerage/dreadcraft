@@ -10,6 +10,7 @@ public class TalentTreeTTP : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public Text tooltipText;
     void Start()
     {
+        
     }
  
     public void OnPointerEnter(PointerEventData eventData)
@@ -19,6 +20,6 @@ public class TalentTreeTTP : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
  
     public void OnPointerExit(PointerEventData eventData)
     {
-        tooltipText.text = "";
+        tooltipText.text = "Talent Tree";
     }
 }

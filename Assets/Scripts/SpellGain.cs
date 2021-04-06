@@ -43,8 +43,7 @@ public class SpellGain : MonoBehaviour
             pr.stamina += collision.gameObject.GetComponent<ItemStats>().stamina;
             pr.intellect += collision.gameObject.GetComponent<ItemStats>().intellect;
             pr.onItemCollection();
-            gainMeteor = true;
-            gainIncinerate = true;
+            gainMeteor = true;           
             Destroy(collision.gameObject);
         }
     }
