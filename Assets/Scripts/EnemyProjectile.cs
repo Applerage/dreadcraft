@@ -38,5 +38,10 @@ public class EnemyProjectile : MonoBehaviour
             Destroy(gameObject);
             collision.gameObject.GetComponent<PlayerResources>().TakeDamage(damage);
         }
+        else if(!collision.gameObject.CompareTag("Enemy"))
+        {
+            Instantiate(impactEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }
