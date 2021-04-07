@@ -4972,7 +4972,7 @@ GameObject:
   - component: {fileID: 6887123337125354298}
   m_Layer: 0
   m_Name: vfx_Projectile_BubbleBlue
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9876,7 +9876,7 @@ MonoBehaviour:
   impactEffect: {fileID: 1723818010802918, guid: 166411891e2093f4d925dda5b3574076,
     type: 3}
   damage: 50
-  speed: 40
+  speed: 32
 --- !u!114 &6887123337125354298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9889,7 +9889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec92a77ea7dff3438004dae7ae2d41c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionTimer: 0.7
+  destructionTimer: 0.6
 --- !u!1 &1831172876973338
 GameObject:
   m_ObjectHideFlags: 0
