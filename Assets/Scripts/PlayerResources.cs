@@ -42,7 +42,7 @@ public class PlayerResources : MonoBehaviour
         currentHealth = maxHealth;
         currentLevel = 1;
         maxLevel = 10;
-        currentTalentPoints = 0;
+        currentTalentPoints = 10;
         isFullHealth = true;
     }
 
@@ -99,9 +99,7 @@ public class PlayerResources : MonoBehaviour
         /* Test Taking Damage */
         if (Input.GetKeyDown(KeyCode.R))
         {
-            //TakeDamage(100);
-            Debug.Log(intellect);
-            Debug.Log(stamina);
+            TakeDamage(100);
         }
     }
 

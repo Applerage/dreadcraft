@@ -26,15 +26,15 @@ public class TalentTreeUnlock : MonoBehaviour
     public Image TTHealth41Image;
     public Image TTHealth51Image;
 
-    bool TT1IsUnlocked = false;
-    bool TT2IsUnlocked = false;
-    bool TT3IsUnlocked = false;
-    bool TT4IsUnlocked = false;
-    bool TT5IsUnlocked = false;
-    bool TT11IsUnlocked = false;
-    bool TT21IsUnlocked = false;
-    bool TT31IsUnlocked = false;
-    bool TT41IsUnlocked = false;
+    public bool TT1IsUnlocked = false;
+    public bool TT2IsUnlocked = false;
+    public bool TT3IsUnlocked = false;
+    public bool TT4IsUnlocked = false;
+    public bool TT5IsUnlocked = false;
+    public bool TT11IsUnlocked = false;
+    public bool TT21IsUnlocked = false;
+    public bool TT31IsUnlocked = false;
+    public bool TT41IsUnlocked = false;
     public bool TT51IsUnlocked = false;
     // Start is called before the first frame update
     void Start()
@@ -51,7 +51,8 @@ public class TalentTreeUnlock : MonoBehaviour
     {
         if (TT1IsUnlocked == false && pr.currentTalentPoints > 0)
         {
-            pr.stamina += 25;
+            pr.maxHealth += 50;
+            pr.currentHealth = pr.maxHealth;
             TT1IsUnlocked = true;
             pr.currentTalentPoints--;
         }     
@@ -75,7 +76,8 @@ public class TalentTreeUnlock : MonoBehaviour
         }
         if (TT11IsUnlocked == false && pr.currentTalentPoints > 1 && TT1IsUnlocked)
         {
-            pr.stamina += 30;
+            pr.maxHealth += 100;
+            pr.currentHealth = pr.maxHealth;
             TT11IsUnlocked = true;
             pr.currentTalentPoints -= 2;
         }

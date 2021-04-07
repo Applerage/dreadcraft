@@ -38,7 +38,7 @@ public class SpellGain : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Item") && !td.onStart && !td.onWizard1Collision && !td.onWizardCollision)
+        if (collision.gameObject.CompareTag("TutorialItem") && !td.onStart && !td.onWizard1Collision && !td.onWizardCollision)
         {
             pr.stamina += collision.gameObject.GetComponent<ItemStats>().stamina;
             pr.intellect += collision.gameObject.GetComponent<ItemStats>().intellect;

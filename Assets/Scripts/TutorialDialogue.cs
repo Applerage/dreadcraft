@@ -88,7 +88,7 @@ public class TutorialDialogue : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Item") && !onStart && !onWizard1Collision && !onWizardCollision)
+        if (collision.gameObject.CompareTag("TutorialItem") && !onStart && !onWizard1Collision && !onWizardCollision)
         {
             onItemPickUp = true;
             dialogue.text = 

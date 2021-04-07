@@ -16,6 +16,8 @@ TagManager:
   - GameManager
   - ErrorTalentText
   - LevelParticles
+  - SpellText
+  - TutorialItem
   layers:
   - Default
   - TransparentFX
