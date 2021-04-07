@@ -47,7 +47,6 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
             damage = damage + playerResources.intellect * 0.5f;
             collision.gameObject.GetComponent<EnemyHp>().takeDamage(damage);
-            //TODO projectile damage formula
         }
     }
 }

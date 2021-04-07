@@ -83,6 +83,12 @@ public class PlayerResources : MonoBehaviour
             case 5:
                 xpNeededToLevel = 1500;
                 break;
+            case 6:
+                xpNeededToLevel = 1500;
+                break;
+            default:
+                xpNeededToLevel = 1500;
+                break;
         }
         OnLevelUp();
         OnLevelUpAnimation();
@@ -106,8 +112,8 @@ public class PlayerResources : MonoBehaviour
             currentXp = currentXp - xpNeededToLevel;
             currentLevel++;
             currentTalentPoints++;
-            stamina += 0.5f * stamina;
-            intellect += 0.5f * intellect;
+            stamina += 15;
+            intellect += 15;
             maxHealth = Mathf.RoundToInt(maxHealth + stamina / maxHealth * 200);
             currentHealth = maxHealth;
             particlesActive = true;

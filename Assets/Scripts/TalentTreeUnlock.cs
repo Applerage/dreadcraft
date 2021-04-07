@@ -14,12 +14,7 @@ public class TalentTreeUnlock : MonoBehaviour
     private float textTimer;
     private float textTimerDuration = 2f;
     private bool textTimerBool = false;
-    
-    public ParticleSystem ps;
-    private float particlesTimer;
-    private float particlesTimerDuration = 1f;
-    private bool particlesTimerBool = false;
-    
+
     public Image TTHealth1Image;
     public Image TTHealth2Image;
     public Image TTHealth3Image;
@@ -49,7 +44,6 @@ public class TalentTreeUnlock : MonoBehaviour
         meteor = GameObject.FindGameObjectWithTag("Player").GetComponent<Meteor>();
         incinerate = GameObject.FindGameObjectWithTag("Player").GetComponent<Incinerate>();
         ttpErrors = GameObject.FindGameObjectWithTag("ErrorTalentText").GetComponent<Text>();
-        ps = GameObject.FindGameObjectWithTag("LevelParticles").GetComponent<ParticleSystem>();
         textTimer = textTimerDuration;
     }
 
@@ -66,7 +60,7 @@ public class TalentTreeUnlock : MonoBehaviour
             textTimerBool = true;
             ttpErrors.text = "Not enough talent points!";
         }
-        else if (pr.currentTalentPoints <= 0 && TT1IsUnlocked)
+        else if (TT1IsUnlocked)
         {
             textTimerBool = true;
             ttpErrors.text = "Already Learned!";
@@ -74,11 +68,26 @@ public class TalentTreeUnlock : MonoBehaviour
     }
     public void UnlockTTHealth2()
     {
+        if (!TT1IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 1 first!";
+        }
         if (TT11IsUnlocked == false && pr.currentTalentPoints > 1 && TT1IsUnlocked)
         {
             pr.stamina += 30;
             TT11IsUnlocked = true;
             pr.currentTalentPoints -= 2;
+        }
+        else if (pr.currentTalentPoints <= 1 && !TT11IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT11IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
         }
     }
     public void UnlockTTDamage1()
@@ -94,7 +103,7 @@ public class TalentTreeUnlock : MonoBehaviour
             textTimerBool = true;
             ttpErrors.text = "Not enough talent points!";
         }
-        else if (pr.currentTalentPoints <= 0 && TT2IsUnlocked)
+        else if (TT2IsUnlocked)
         {
             textTimerBool = true;
             ttpErrors.text = "Already Learned!";
@@ -102,23 +111,37 @@ public class TalentTreeUnlock : MonoBehaviour
     }
     public void UnlockTTDamage2()
     {
+        if (!TT2IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 1 first!";
+        }
         if (TT21IsUnlocked == false && pr.currentTalentPoints > 1 && TT2IsUnlocked)
         {
             pr.intellect += 25;
             TT21IsUnlocked = true;
             pr.currentTalentPoints -= 2;
-            
+        }
+        else if (pr.currentTalentPoints <= 1 && !TT21IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT21IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
         }
     }
     public void UnlockTTCooldown1()
     {
-        if (TT3IsUnlocked == false && pr.currentTalentPoints > 0 && meteor.cooldownTime >= 12)
+        if (meteor.isOnCd)
         {
-            if (meteor.isOnCd)
-            {
-                textTimerBool = true;
-                ttpErrors.text = "Wait for Meteor CD!";
-            }
+            textTimerBool = true;
+            ttpErrors.text = "Wait for Meteor CD!";
+        }
+        if (TT3IsUnlocked == false && pr.currentTalentPoints > 0 && meteor.cooldownTime >= 12 && !meteor.isOnCd)
+        {
             meteor.cooldownTime -= 5;
             TT3IsUnlocked = true;
             pr.currentTalentPoints--;
@@ -128,7 +151,7 @@ public class TalentTreeUnlock : MonoBehaviour
             textTimerBool = true;
             ttpErrors.text = "Not enough talent points!";
         }
-        else if (pr.currentTalentPoints <= 0 && TT3IsUnlocked)
+        else if (TT3IsUnlocked)
         {
             textTimerBool = true;
             ttpErrors.text = "Already Learned!";
@@ -136,29 +159,42 @@ public class TalentTreeUnlock : MonoBehaviour
     }
     public void UnlockTTCooldown2()
     {
+        if (!TT3IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 1 first!";
+        }
         if (TT31IsUnlocked == false && pr.currentTalentPoints > 1 && TT3IsUnlocked)
         {
             meteor.cooldownTime -= 7;
             TT31IsUnlocked = true;
             pr.currentTalentPoints -= 2;
         }
+        else if (pr.currentTalentPoints <= 1 && !TT31IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT31IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
+        }
     }
     public void UnlockTTExperience1()
     {
         if (TT4IsUnlocked == false && pr.currentTalentPoints > 0)
         {
-            pr.currentLevel++;
+            pr.currentXp += 1000;
             TT4IsUnlocked = true;
             pr.currentTalentPoints--;
-            ps.Play();
-            particlesTimerBool = true;
         }
         else if (pr.currentTalentPoints <= 0 && !TT4IsUnlocked)
         {
             textTimerBool = true;
             ttpErrors.text = "Not enough talent points!";
         }
-        else if (pr.currentTalentPoints <= 0 && TT4IsUnlocked)
+        else if (TT4IsUnlocked)
         {
             textTimerBool = true;
             ttpErrors.text = "Already Learned!";
@@ -166,13 +202,26 @@ public class TalentTreeUnlock : MonoBehaviour
     }
     public void UnlockTTExperience2()
     {
+        if (!TT4IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 1 first!";
+        }
         if (TT41IsUnlocked == false && pr.currentTalentPoints > 1 && TT4IsUnlocked)
         {
-            pr.currentLevel++;
+            pr.currentXp += 1500;
             TT41IsUnlocked = true;
             pr.currentTalentPoints -= 2;
-            ps.Play();
-            particlesTimerBool = true;
+        }
+        else if (pr.currentTalentPoints <= 1 && !TT41IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT41IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
         }
     }
     public void UnlockTTSpell1()
@@ -188,7 +237,7 @@ public class TalentTreeUnlock : MonoBehaviour
             textTimerBool = true;
             ttpErrors.text = "Not enough talent points!";
         }
-        else if (pr.currentTalentPoints <= 0 && TT5IsUnlocked)
+        else if (TT5IsUnlocked)
         {
             textTimerBool = true;
             ttpErrors.text = "Already Learned!";
@@ -196,11 +245,26 @@ public class TalentTreeUnlock : MonoBehaviour
     }
     public void UnlockTTSpell2()
     {
+        if (!TT5IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 1 first!";
+        }
         if (TT51IsUnlocked == false && pr.currentTalentPoints > 1 && TT5IsUnlocked)
         {
             incinerate.incinerateDuration += 3;
             TT51IsUnlocked = true;
             pr.currentTalentPoints -= 2;
+        }
+        else if (pr.currentTalentPoints <= 1 && !TT51IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT51IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
         }
     }
 
@@ -215,16 +279,6 @@ public class TalentTreeUnlock : MonoBehaviour
                 ttpErrors.text = "";
                 textTimerBool = false;
                 textTimer = textTimerDuration; 
-            }
-        }
-        if (particlesTimerBool)
-        {
-            textTimer -= Time.deltaTime;
-            if (particlesTimer <= 0)
-            {
-                ps.Stop();
-                particlesTimerBool = false;
-                particlesTimer = particlesTimerDuration;
             }
         }
     }
