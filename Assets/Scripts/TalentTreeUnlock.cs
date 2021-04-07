@@ -187,6 +187,9 @@ public class TalentTreeUnlock : MonoBehaviour
     {
         if (TT4IsUnlocked == false && pr.currentTalentPoints > 0)
         {
+            textTimerBool = true;
+            ttpErrors.text = "";
+            pr.levelFromTalents = true;
             pr.currentXp += 1000;
             TT4IsUnlocked = true;
             pr.currentTalentPoints--;
@@ -211,6 +214,9 @@ public class TalentTreeUnlock : MonoBehaviour
         }
         if (TT41IsUnlocked == false && pr.currentTalentPoints > 1 && TT4IsUnlocked)
         {
+            textTimerBool = true;
+            ttpErrors.text = "";
+            pr.levelFromTalents = true;
             pr.currentXp += 1500;
             TT41IsUnlocked = true;
             pr.currentTalentPoints -= 2;
@@ -280,7 +286,8 @@ public class TalentTreeUnlock : MonoBehaviour
             {
                 ttpErrors.text = "";
                 textTimerBool = false;
-                textTimer = textTimerDuration; 
+                textTimer = textTimerDuration;
+                pr.levelFromTalents = false;
             }
         }
     }

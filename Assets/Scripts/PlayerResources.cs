@@ -32,6 +32,8 @@ public class PlayerResources : MonoBehaviour
 
     public float stamina = 10;
     public float intellect = 10;
+
+    public bool levelFromTalents;
     
     /* Percentage (%) values */
     private float healthPercentage;
@@ -44,6 +46,7 @@ public class PlayerResources : MonoBehaviour
         maxLevel = 10;
         currentTalentPoints = 10;
         isFullHealth = true;
+        levelFromTalents = false;
     }
 
     // Update is called once per frame
@@ -107,15 +110,29 @@ public class PlayerResources : MonoBehaviour
     {
         if (currentXp >= xpNeededToLevel)
         {
-            currentXp = currentXp - xpNeededToLevel;
-            currentLevel++;
-            currentTalentPoints++;
-            stamina += 15;
-            intellect += 15;
-            maxHealth = Mathf.RoundToInt(maxHealth + stamina / maxHealth * 200);
-            currentHealth = maxHealth;
-            particlesActive = true;
-            playParticles = true;
+            if (!levelFromTalents)
+            {
+                currentXp = currentXp - xpNeededToLevel;
+                currentLevel++;
+                currentTalentPoints++;
+                stamina += 15;
+                intellect += 15;
+                maxHealth = Mathf.RoundToInt(maxHealth + stamina / maxHealth * 200);
+                currentHealth = maxHealth;
+                particlesActive = true;
+                playParticles = true;
+            }
+            else
+            {
+                currentXp = currentXp - xpNeededToLevel;
+                currentLevel++;
+                stamina += 15;
+                intellect += 15;
+                maxHealth = Mathf.RoundToInt(maxHealth + stamina / maxHealth * 200);
+                currentHealth = maxHealth;
+                particlesActive = true;
+                playParticles = true;
+            }
         }
 
         if (currentLevel >= maxLevel)
