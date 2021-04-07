@@ -23965,6 +23965,7 @@ GameObject:
   - component: {fileID: 4741839673840081362}
   - component: {fileID: 7961792995090097419}
   - component: {fileID: 2161922119321960275}
+  - component: {fileID: 8377910859900786337}
   m_Layer: 0
   m_Name: vfx_Projectile_Comet_Orange
   m_TagString: Bullet
@@ -24064,6 +24065,19 @@ MonoBehaviour:
   impactEffect: {fileID: 1576947433937734, guid: 3a1ab18e6861a8940aa332e72f024271,
     type: 3}
   damage: 250
+--- !u!114 &8377910859900786337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846563170864394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec92a77ea7dff3438004dae7ae2d41c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructionTimer: 0.6
 --- !u!1 &1915593564425164
 GameObject:
   m_ObjectHideFlags: 0

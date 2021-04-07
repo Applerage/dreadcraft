@@ -14320,6 +14320,7 @@ GameObject:
   - component: {fileID: 2225824625521721008}
   - component: {fileID: 87437136278341096}
   - component: {fileID: 2139209476062835460}
+  - component: {fileID: 2538353266175206084}
   m_Layer: 0
   m_Name: vfx_Projectile_ArrowFire
   m_TagString: Player
@@ -14418,8 +14419,19 @@ MonoBehaviour:
   impactEffect: {fileID: 1723818010802918, guid: 3e7c3ad71214c404e880e430f16c2e6a,
     type: 3}
   damage: 35
-  damageText: {fileID: 0}
-  damageTimer: 0.8
+--- !u!114 &2538353266175206084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391574063814312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec92a77ea7dff3438004dae7ae2d41c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructionTimer: 0.6
 --- !u!1 &1399422420123134
 GameObject:
   m_ObjectHideFlags: 0
