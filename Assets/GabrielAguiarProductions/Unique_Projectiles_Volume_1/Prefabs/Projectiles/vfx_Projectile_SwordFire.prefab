@@ -4791,7 +4791,7 @@ GameObject:
   - component: {fileID: 910946708482743871}
   m_Layer: 0
   m_Name: vfx_Projectile_SwordFire
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4885,7 +4885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 1339241070378346, guid: 71269bcb55a643f4996ddca238ddedc5,
     type: 3}
-  damage: 120
+  damage: 125
   speed: 150
 --- !u!1 &1396180732954958
 GameObject:

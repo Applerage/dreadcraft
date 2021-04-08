@@ -28187,7 +28187,7 @@ MonoBehaviour:
   maxHp: 600
   isDead: 0
   animator: {fileID: 419571713}
-  xpPoints: 1000
+  xpPoints: 0
   player: {fileID: 553758269}
   damageText: {fileID: 1934752215}
   damageDuration: 0.8
@@ -29458,13 +29458,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1725889547}
   onStart: 0
-  onStartTimer: 1
+  onStartTimer: 6.5
   onWizardCollision: 0
-  onWizardTimer: 1
+  onWizardTimer: 8
   onWizard1Collision: 0
-  onWizard1Timer: 1
+  onWizard1Timer: 8
   onItemPickUp: 0
-  onItemTimer: 1
+  onItemTimer: 8
 --- !u!114 &553758281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31985,7 +31985,7 @@ MonoBehaviour:
   maxHp: 60
   isDead: 0
   animator: {fileID: 810982587}
-  xpPoints: 750
+  xpPoints: 0
   player: {fileID: 553758269}
   damageText: {fileID: 1815703513}
   damageDuration: 0.8
@@ -32307,7 +32307,6 @@ GameObject:
   - component: {fileID: 848339392}
   - component: {fileID: 848339394}
   - component: {fileID: 848339393}
-  - component: {fileID: 848339395}
   m_Layer: 0
   m_Name: UnlockedOverlay
   m_TagString: Untagged
@@ -32371,28 +32370,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848339391}
   m_CullTransparentMesh: 0
---- !u!114 &848339395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848339391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 617eec7eca9d23641a3f4fd5bc5c2bef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unlockedOverlay1: {fileID: 0}
-  unlockedOverlay2: {fileID: 0}
-  unlockedOverlay3: {fileID: 0}
-  unlockedOverlay4: {fileID: 0}
-  unlockedOverlay5: {fileID: 0}
-  unlockedOverlay6: {fileID: 0}
-  unlockedOverlay7: {fileID: 0}
-  unlockedOverlay8: {fileID: 0}
-  unlockedOverlay9: {fileID: 0}
-  unlockedOverlay10: {fileID: 0}
 --- !u!1001 &850739226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33273,7 +33250,7 @@ MonoBehaviour:
   maxHp: 60
   isDead: 0
   animator: {fileID: 946535016}
-  xpPoints: 500
+  xpPoints: 0
   player: {fileID: 553758269}
   damageText: {fileID: 1848172747}
   damageDuration: 0.8

@@ -44,7 +44,7 @@ public class PlayerResources : MonoBehaviour
         currentHealth = maxHealth;
         currentLevel = 1;
         maxLevel = 10;
-        currentTalentPoints = 10;
+        currentTalentPoints = 0;
         isFullHealth = true;
         levelFromTalents = false;
     }

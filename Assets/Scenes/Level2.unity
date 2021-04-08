@@ -38425,7 +38425,7 @@ MonoBehaviour:
   maxHp: 60
   isDead: 0
   animator: {fileID: 1788639502}
-  xpPoints: 750
+  xpPoints: 80
   player: {fileID: 943538623}
   damageText: {fileID: 488811495}
   damageDuration: 0.8
@@ -39680,7 +39680,7 @@ MonoBehaviour:
   maxHp: 600
   isDead: 0
   animator: {fileID: 1895209436}
-  xpPoints: 1000
+  xpPoints: 250
   player: {fileID: 943538623}
   damageText: {fileID: 1462466351}
   damageDuration: 0.8
@@ -50880,7 +50880,7 @@ MonoBehaviour:
   maxHp: 60
   isDead: 0
   animator: {fileID: 2095584376}
-  xpPoints: 750
+  xpPoints: 80
   player: {fileID: 943538623}
   damageText: {fileID: 348242397}
   damageDuration: 0.8
