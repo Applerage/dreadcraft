@@ -1,52 +1,25 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public GameObject followObject;
-    public Vector2 followOffset;
-    private Vector2 threshold;
-    // Start is called before the first frame update
-    void Start()
+    public Transform target;
+    public float smoothing;
+    public Vector2 minPosition;
+    public Vector2 maxPosition;
+
+    private void LateUpdate()
     {
-        threshold = calculateThreshold();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        Vector2 follow = followObject.transform.position;
-        float xDifference = Vector2.Distance(Vector2.right * transform.position.x, Vector2.right * follow.x);
-        float yDifference = Vector2.Distance(Vector2.up * transform.position.y, Vector2.up * follow.y   );
-
-        Vector3 newPosition = transform.position;
-
-        if(Mathf.Abs(xDifference) >= threshold.x){
-            newPosition.x = follow.x;
-        }
-
-        if (Mathf.Abs(yDifference) >= threshold.y)
+        if (transform.position != target.position)
         {
-            newPosition.y = follow.y;
+            Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
+
+            targetPosition.x = Mathf.Clamp(targetPosition.x, minPosition.x, maxPosition.x);
+            targetPosition.y = Mathf.Clamp(targetPosition.y, minPosition.y, maxPosition.y);
+
+            transform.position = Vector3.Lerp(transform.position, targetPosition, smoothing);
         }
-
-        transform.position = newPosition; 
-
-    }
-    private Vector3 calculateThreshold()
-    {
-        Rect aspect = Camera.main.pixelRect;
-        Vector2 t = new Vector2(Camera.main.orthographicSize * aspect.width / aspect.height, Camera.main.orthographicSize);
-        t.x -= followOffset.x;
-        t.y -= followOffset.y;
-        return t;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Vector2 border = calculateThreshold();
-        Gizmos.DrawWireCube(transform.position, new Vector3(border.x * 2, border.y * 2, 1));
     }
 }
