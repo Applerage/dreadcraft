@@ -64,6 +64,7 @@ public class EnemyAI : MonoBehaviour
         if (gameObject.GetComponent<EnemyHp>().isDead)
         {
             myAnim.Play("Die");
+            
         }
     }
 

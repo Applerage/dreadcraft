@@ -32,7 +32,7 @@ public class EnemyHp : MonoBehaviour
         incinerate = GameObject.FindGameObjectWithTag("Player").GetComponent<Incinerate>();
         if (maxHp >= 100)
         {
-            animationTimer = 1.8f;
+            animationTimer = 1.2f;
         }
         healthPercentage = Mathf.RoundToInt(currentHp / maxHp * 100);
         damageTimer = damageDuration;

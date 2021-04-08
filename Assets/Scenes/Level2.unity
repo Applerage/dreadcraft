@@ -39722,17 +39722,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1895209435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63919048f4ada614096b3313507f9550, type: 3}
+  m_Script: {fileID: 11500000, guid: 19705acdebc2e5149910d6325fd997b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myAnim: {fileID: 1895209436}
-  speed: 4
+  speed: 3
   maxRange: 20
+  stoppingDistance: 6
   minRange: 5
   startPosition: {x: 0, y: 0, z: 0}
-  isAbleToAttack: 0
   isMoving: 0
-  isDetected: 0
+  startTimeBtwShots: 4
+  projectile: {fileID: 1305997383178436, guid: 5b54c2e1bf70dd248902db6814a270fb, type: 3}
 --- !u!1 &1895888171
 GameObject:
   m_ObjectHideFlags: 0
