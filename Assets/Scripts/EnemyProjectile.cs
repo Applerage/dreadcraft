@@ -14,19 +14,22 @@ public class EnemyProjectile : MonoBehaviour
     private Transform player;
 
     private Vector3 target;
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector3(player.position.x, player.position.y);
+        rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        rb = GetComponent<Rigidbody2D>();
     }
+
 
 
     private void OnCollisionEnter2D(Collision2D collision)

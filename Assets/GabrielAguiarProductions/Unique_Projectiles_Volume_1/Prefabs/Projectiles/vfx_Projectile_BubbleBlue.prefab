@@ -9876,7 +9876,7 @@ MonoBehaviour:
   impactEffect: {fileID: 1723818010802918, guid: 166411891e2093f4d925dda5b3574076,
     type: 3}
   damage: 50
-  speed: 75
+  speed: 90
 --- !u!114 &6887123337125354298
 MonoBehaviour:
   m_ObjectHideFlags: 0

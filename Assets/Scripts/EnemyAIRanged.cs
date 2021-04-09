@@ -26,6 +26,7 @@ public class EnemyAIRanged : MonoBehaviour
     private float animationTimer = 0.8f;
     private float animationMaxTimer = 0.8f;
 
+    public GameObject rotationObject;
     public GameObject projectile;
     private void Start()
     {
@@ -45,18 +46,20 @@ public class EnemyAIRanged : MonoBehaviour
                 isMoving = true;
                 FollowPlayer();
             }
-            else if(Vector3.Distance(transform.position, target.position) <= minRange && Vector3.Distance(transform.position, target.position) > stoppingDistance)
-            {
-                myAnim.Play("Idle");
-            }
             else if (Vector3.Distance(target.position, transform.position) > maxRange)
             {
                 GoHome();
                 isMoving = false;
             }
-            
         }
-
+        if (transform.position.x > target.position.x)
+        {
+            rotationObject.transform.rotation = Quaternion.Euler(0, -120, 0);
+        }
+        if (transform.position.x < target.position.x)
+        {
+            rotationObject.transform.rotation = Quaternion.Euler(0, 150, 0);
+        }
         if (gameObject.GetComponent<EnemyHp>().isDead)
         {
             isMoving = false;
@@ -95,6 +98,6 @@ public class EnemyAIRanged : MonoBehaviour
 
     public void GoHome()
     {
-        transform.position = Vector3.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, startPosition, speed * 2 *  Time.deltaTime);
     }
 }
