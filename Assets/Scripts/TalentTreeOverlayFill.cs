@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TalentTreeOverlayFill : MonoBehaviour
 {
     private TalentTreeUnlock ttu;
-
+    private PlayerResources pr;
     public Image unlockedOverlay1;
     public Image unlockedOverlay2;
     public Image unlockedOverlay3;
@@ -17,9 +17,12 @@ public class TalentTreeOverlayFill : MonoBehaviour
     public Image unlockedOverlay8;
     public Image unlockedOverlay9;
     public Image unlockedOverlay10;
+
+    public Image explosion;
     // Start is called before the first frame update
     void Start()
     {
+        pr = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerResources>();
         ttu = gameObject.GetComponent<TalentTreeUnlock>();
         unlockedOverlay1.fillAmount = 1;
         unlockedOverlay2.fillAmount = 1;
@@ -31,6 +34,7 @@ public class TalentTreeOverlayFill : MonoBehaviour
         unlockedOverlay8.fillAmount = 1;
         unlockedOverlay9.fillAmount = 1;
         unlockedOverlay10.fillAmount = 1;
+        explosion.enabled = false;
     }
 
     // Update is called once per frame
@@ -75,6 +79,15 @@ public class TalentTreeOverlayFill : MonoBehaviour
         if (ttu.TT51IsUnlocked)
         {
             unlockedOverlay10.fillAmount = 0;
+        }
+
+        if (pr.currentTalentPoints > 0)
+        {
+            explosion.enabled = true;
+        }
+        else
+        {
+            explosion.enabled = false;
         }
     }
 }

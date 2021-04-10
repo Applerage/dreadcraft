@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EnemyHp : MonoBehaviour
 {
     public float maxHp = 100;
-    private float currentHp;
+    public float currentHp;
     private DoorAppear da;
     private float animationTimer = 1f;
     public bool isDead = false;

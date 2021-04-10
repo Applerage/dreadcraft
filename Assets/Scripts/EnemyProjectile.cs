@@ -41,7 +41,7 @@ public class EnemyProjectile : MonoBehaviour
             Destroy(gameObject);
             collision.gameObject.GetComponent<PlayerResources>().TakeDamage(damage);
         }
-        else if(!collision.gameObject.CompareTag("Enemy"))
+        else if(!collision.gameObject.CompareTag("Enemy") && !collision.gameObject.CompareTag("Bullet"))
         {
             Instantiate(impactEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
