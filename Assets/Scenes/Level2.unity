@@ -29547,7 +29547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.403, y: 0.48}
+  m_AnchoredPosition: {x: -1.403, y: 1}
   m_SizeDelta: {x: 3.2054977, y: 4.3994536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &311374081
@@ -50075,7 +50075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a38c80eb62ccb47856a9aaeb6b306c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 7
   rb: {fileID: 943538636}
 --- !u!58 &943538635
 CircleCollider2D:
@@ -76374,7 +76374,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.815}
+  m_AnchoredPosition: {x: 0, y: 1.5}
   m_SizeDelta: {x: 3.553833, y: 2.8585153}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1644393030
@@ -76640,7 +76640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.815}
+  m_AnchoredPosition: {x: 0, y: 1.5}
   m_SizeDelta: {x: 3.553833, y: 2.8585153}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1666064481
@@ -76971,7 +76971,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -1.403, y: 0.48}
+  m_AnchoredPosition: {x: -1.403, y: 1}
   m_SizeDelta: {x: 3.2054977, y: 4.3994536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717509063
@@ -87391,7 +87391,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.8}
+  m_Offset: {x: 0, y: 1.5}
   serializedVersion: 2
   m_Radius: 0.6
 --- !u!95 &1788639502 stripped
@@ -88233,7 +88233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 2}
+  m_AnchoredPosition: {x: 0, y: 2.5}
   m_SizeDelta: {x: 3.553833, y: 4.643336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1844915312
@@ -88908,7 +88908,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.030156612, y: 1.0806571}
+  m_Offset: {x: -0.030156612, y: 2.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -94661,7 +94661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 401782, guid: c6a5fbda98111fe47958dcde4e4a3c21, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.67643
+      value: -68.59
       objectReference: {fileID: 0}
     - target: {fileID: 401782, guid: c6a5fbda98111fe47958dcde4e4a3c21, type: 3}
       propertyPath: m_LocalPosition.y
@@ -94669,7 +94669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 401782, guid: c6a5fbda98111fe47958dcde4e4a3c21, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.9925597
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 401782, guid: c6a5fbda98111fe47958dcde4e4a3c21, type: 3}
       propertyPath: m_LocalRotation.w
@@ -95950,7 +95950,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.8}
+  m_Offset: {x: 0, y: 1.5}
   serializedVersion: 2
   m_Radius: 0.6
 --- !u!114 &2095584379
