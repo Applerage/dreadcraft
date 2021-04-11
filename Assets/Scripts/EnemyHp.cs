@@ -19,7 +19,8 @@ public class EnemyHp : MonoBehaviour
     public float damageDuration;
     private bool tookDamage = false;
 
-    public Incinerate incinerate;
+    private Incinerate incinerate;
+    private EnemyAIRanged ai;
     
     public Image healthBar;
     public Image healthBarBorder;
@@ -36,6 +37,7 @@ public class EnemyHp : MonoBehaviour
         }
         healthPercentage = Mathf.RoundToInt(currentHp / maxHp * 100);
         damageTimer = damageDuration;
+        ai = GetComponent<EnemyAIRanged>();
     }
 
     // Update is called once per frame
@@ -61,6 +63,12 @@ public class EnemyHp : MonoBehaviour
                 tookDamage = false;
                 damageTimer = damageDuration;
             }
+        }
+
+        if (ai.isHome)
+        {
+            currentHp = maxHp;
+            healthBar.fillAmount = 1;
         }
     }
 

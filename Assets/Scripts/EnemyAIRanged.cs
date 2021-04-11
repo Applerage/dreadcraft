@@ -25,7 +25,7 @@ public class EnemyAIRanged : MonoBehaviour
     public float startTimeBtwShots;
     private float animationTimer = 0.8f;
     private float animationMaxTimer = 0.8f;
-
+    public bool isHome;
     public GameObject rotationObject;
     public GameObject projectile;
     private void Start()
@@ -35,6 +35,7 @@ public class EnemyAIRanged : MonoBehaviour
         timeBtwShots = startTimeBtwShots;
         isMoving = false;
         animationTimer = 0.8f;
+        isHome = true;
     }
 
     private void Update()
@@ -44,12 +45,14 @@ public class EnemyAIRanged : MonoBehaviour
             if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange && Vector3.Distance(target.position, transform.position) >= stoppingDistance)
             {
                 isMoving = true;
+                isHome = false;
                 FollowPlayer();
             }
             else if (Vector3.Distance(target.position, transform.position) > maxRange)
             {
                 GoHome();
                 isMoving = false;
+                isHome = true;
             }
         }
         if (transform.position.x > target.position.x)
