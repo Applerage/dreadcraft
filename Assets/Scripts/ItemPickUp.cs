@@ -16,6 +16,7 @@ public class ItemPickUp : MonoBehaviour
         {
             pr.stamina += collision.gameObject.GetComponent<ItemStats>().stamina;
             pr.intellect += collision.gameObject.GetComponent<ItemStats>().intellect;
+            pr.currentXp += collision.gameObject.GetComponent<ItemStats>().xp;
             pr.onItemCollection();
             Destroy(collision.gameObject);
         }

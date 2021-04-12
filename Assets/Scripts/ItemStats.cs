@@ -8,5 +8,7 @@ public class ItemStats : MonoBehaviour
     public float intellect;
 
     public float stamina;
-    
+
+    public float xp = 500f;
+
 }

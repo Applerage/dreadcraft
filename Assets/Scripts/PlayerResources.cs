@@ -70,6 +70,11 @@ public class PlayerResources : MonoBehaviour
         {
             currentLevel = maxLevel;
         }
+
+        if (currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
         switch(currentLevel) 
         {
             case 1:
