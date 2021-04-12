@@ -76190,8 +76190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAnim: {fileID: 1011230616}
   speed: 5
-  maxRange: 15
-  stoppingDistance: 10
+  maxRange: 18
+  stoppingDistance: 15
   minRange: 5
   startPosition: {x: 0, y: 0, z: 0}
   isMoving: 0
@@ -126522,12 +126522,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAnim: {fileID: 1788639502}
   speed: 7
-  maxRange: 19
+  maxRange: 15
   stoppingDistance: 14
   minRange: 12
   startPosition: {x: 0, y: 0, z: 0}
   isMoving: 0
-  startTimeBtwShots: 1
+  startTimeBtwShots: 1.5
   isHome: 0
   rotationObject: {fileID: 1088941872}
   projectile: {fileID: 1260705795423738, guid: e21f397f19b330b43a512abfdfd2c479, type: 3}
