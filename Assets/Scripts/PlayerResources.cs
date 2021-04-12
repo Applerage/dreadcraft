@@ -99,12 +99,6 @@ public class PlayerResources : MonoBehaviour
         expBar.fillAmount = xpPercentage / 100;
         hpBar.fillAmount = healthPercentage / 100;
         levelText.text = $"{currentLevel}";
-        
-        /* Test Taking Damage */
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            TakeDamage(100);
-        }
     }
 
     void OnLevelUp()
