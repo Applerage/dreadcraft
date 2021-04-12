@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerResources : MonoBehaviour
@@ -181,6 +182,7 @@ public class PlayerResources : MonoBehaviour
             if (lives < 0)
             {
                 currentHealth = 0;
+                SceneManager.LoadScene("LoseScene");
             }
             else if (lives == 1)
             {
