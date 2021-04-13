@@ -108,7 +108,7 @@ public class PlayerResources : MonoBehaviour
 
     void OnLevelUp()
     {
-        if (currentXp >= xpNeededToLevel && currentLevel < 10)
+        if (currentXp >= xpNeededToLevel && currentLevel < maxLevel)
         {
             if (!levelFromTalents)
             {

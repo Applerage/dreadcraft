@@ -191,6 +191,7 @@ public class TalentTreeUnlock : MonoBehaviour
             ttpErrors.text = "";
             pr.levelFromTalents = true;
             pr.currentXp += 1000;
+            pr.maxLevel++;
             TT4IsUnlocked = true;
             pr.currentTalentPoints--;
         }
@@ -218,10 +219,11 @@ public class TalentTreeUnlock : MonoBehaviour
             ttpErrors.text = "";
             pr.levelFromTalents = true;
             pr.currentXp += 1500;
+            pr.maxLevel++;
             TT41IsUnlocked = true;
-            pr.currentTalentPoints -= 2;
+            pr.currentTalentPoints -= 3;
         }
-        else if (pr.currentTalentPoints <= 1 && !TT41IsUnlocked)
+        else if (pr.currentTalentPoints <= 2 && !TT41IsUnlocked)
         {
             textTimerBool = true;
             ttpErrors.text = "Not enough talent points!";

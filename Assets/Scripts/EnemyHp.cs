@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class EnemyHp : MonoBehaviour
 {
-    private BossDoorLock bossDoorLock;
     public float maxHp = 100;
     public float currentHp;
     private DoorAppear da;
@@ -18,7 +17,7 @@ public class EnemyHp : MonoBehaviour
     public Text damageText;
     private float damageTimer;
     public float damageDuration;
-    private bool tookDamage = false;
+    public bool tookDamage = false;
 
     private Incinerate incinerate;
     private EnemyAIRanged ai;
@@ -32,7 +31,6 @@ public class EnemyHp : MonoBehaviour
         currentHp = maxHp;
         da = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorAppear>();
         incinerate = GameObject.FindGameObjectWithTag("Player").GetComponent<Incinerate>();
-        bossDoorLock = GetComponent<BossDoorLock>();
         if (maxHp >= 100)
         {
             animationTimer = 1.2f;
@@ -65,7 +63,7 @@ public class EnemyHp : MonoBehaviour
                 tookDamage = false;
                 damageTimer = damageDuration;
             }
-            bossDoorLock.finalBossDoor.SetActive(true);
+            
         }
 
         if (ai.isHome)
