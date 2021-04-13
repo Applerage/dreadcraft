@@ -17,6 +17,7 @@ TagManager:
   - Door
   - Bullet
   - Item
+  - Potion
   layers:
   - Default
   - TransparentFX

@@ -213,7 +213,7 @@ public class TalentTreeUnlock : MonoBehaviour
             textTimerBool = true;
             ttpErrors.text = "Learn the Tier 1 first!";
         }
-        if (TT41IsUnlocked == false && pr.currentTalentPoints > 1 && TT4IsUnlocked)
+        if (TT41IsUnlocked == false && pr.currentTalentPoints > 2 && TT4IsUnlocked)
         {
             textTimerBool = true;
             ttpErrors.text = "";
