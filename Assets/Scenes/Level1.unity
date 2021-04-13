@@ -29412,13 +29412,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1725889547}
   onStart: 0
-  onStartTimer: 6.5
+  onStartTimer: 10
   onWizardCollision: 0
-  onWizardTimer: 8
+  onWizardTimer: 12
   onWizard1Collision: 0
-  onWizard1Timer: 8
+  onWizard1Timer: 12
   onItemPickUp: 0
-  onItemTimer: 8
+  onItemTimer: 12
 --- !u!114 &553758281
 MonoBehaviour:
   m_ObjectHideFlags: 0
