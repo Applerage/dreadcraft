@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class EnemyHp : MonoBehaviour
 {
+    public SoundManager soundManager;
+
     public float maxHp = 100;
     public float currentHp;
     private DoorAppear da;
@@ -49,7 +51,6 @@ public class EnemyHp : MonoBehaviour
         if (isDead)
         {
             animationTimer -= Time.deltaTime;
-
         }
 
         if (animationTimer <= 0)
@@ -82,14 +83,16 @@ public class EnemyHp : MonoBehaviour
         {
             amount = amount * 2;
         }
+        soundManager.enemyTakeDamage.Play();
         tookDamage = true;
         currentHp -= amount;
         animator.Play("TakeDamage");
         healthPercentage = Mathf.RoundToInt(currentHp / maxHp * 100);
         healthBar.fillAmount = healthPercentage / 100;
-        damageText.text = $"-{Mathf.RoundToInt(amount)}";
+        damageText.text = $"-{Mathf.RoundToInt(amount)}";    
         if (currentHp <= 0)
         {
+            soundManager.enemyDie.Play();
             isDead = true;
             animator.Play("Die");
             currentHp = 0;

@@ -7,6 +7,8 @@ public class Meteor : MonoBehaviour
 {
     Fireball fireball;
 
+    public SoundManager soundManager;
+
     public float cooldownTime = 0.8f;
     private float nextFireTime = 0f;
 
@@ -55,6 +57,7 @@ public class Meteor : MonoBehaviour
             {
                 if (timerCastTime <= 0.0f)
                 {
+                    
                     GameObject spellClone = Instantiate(spell);
                     spellClone.transform.position = firePoint.position;
                     spellClone.transform.rotation = Quaternion.Euler(0, 0, lookAngle);
@@ -75,6 +78,7 @@ public class Meteor : MonoBehaviour
                     }
                     if (Input.GetKeyDown(KeyCode.Alpha3))
                     {
+                        soundManager.meteor.Play();
                         casting = true;
                         fireOverlay.enabled = true;
                         castParticles.Play();

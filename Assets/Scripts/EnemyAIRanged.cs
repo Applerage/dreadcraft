@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyAIRanged : MonoBehaviour
 {
+    public SoundManager soundManager;
+
     public Animator myAnim;
     private Transform target;
 
@@ -74,9 +76,11 @@ public class EnemyAIRanged : MonoBehaviour
         {
             if (timeBtwShots <= 0)
             {
+
                 myAnim.Play("CastSpell");
                 if (animationTimer <= 0)
                 {
+                    soundManager.enemyAttack.Play();
                     Instantiate(projectile, transform.position, Quaternion.identity);
                     timeBtwShots = startTimeBtwShots;
                     animationTimer = animationMaxTimer;

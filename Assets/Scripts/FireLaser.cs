@@ -8,6 +8,8 @@ public class FireLaser : MonoBehaviour
     Meteor meteor;
     Fireball fireball;
 
+    public SoundManager soundManager;
+
     public float cooldownTime;
     private float nextFireTime = 0f;
 
@@ -54,8 +56,10 @@ public class FireLaser : MonoBehaviour
             firelaserLoading.fillAmount = 0;
             if (meteor.casting == false && fireball.castingFireBall == false)
             {
+                
                 if (timerCastTimelaser <= 0)
                 {
+                    soundManager.fireLaser.Play();
                     GameObject spellClone1 = Instantiate(spell);
                     spellClone1.transform.position = firePoint.position;
                     spellClone1.transform.rotation = Quaternion.Euler(0, 0, lookAngle);

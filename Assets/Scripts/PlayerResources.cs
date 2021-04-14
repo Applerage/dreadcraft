@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class PlayerResources : MonoBehaviour
 {
+    public SoundManager soundManager;
+
     public float currentHealth;
     public float maxHealth;
     public bool isFullHealth;
@@ -110,6 +112,7 @@ public class PlayerResources : MonoBehaviour
     {
         if (currentXp >= xpNeededToLevel && currentLevel < maxLevel)
         {
+            soundManager.levelUp.Play();
             if (!levelFromTalents)
             {
                 currentXp = currentXp - xpNeededToLevel;
@@ -170,6 +173,7 @@ public class PlayerResources : MonoBehaviour
     
     public void TakeDamage(float amount)
     {
+        soundManager.takeDamage.Play();
         currentHealth -= amount;
         healthPercentage = Mathf.RoundToInt(currentHealth / maxHealth * 100);
         hpBar.fillAmount = healthPercentage / 100;
