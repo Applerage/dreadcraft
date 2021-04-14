@@ -21,6 +21,7 @@ public class EnemyHp : MonoBehaviour
 
     private Incinerate incinerate;
     private EnemyAIRanged ai;
+    private Difficulty difficulty;
     
     public Image healthBar;
     public Image healthBarBorder;
@@ -28,6 +29,8 @@ public class EnemyHp : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        difficulty = GameObject.FindGameObjectWithTag("Difficulty").GetComponent<Difficulty>();
+        UpdateEnemyHpOnDifficulty();
         currentHp = maxHp;
         da = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorAppear>();
         incinerate = GameObject.FindGameObjectWithTag("Player").GetComponent<Incinerate>();
@@ -98,4 +101,12 @@ public class EnemyHp : MonoBehaviour
             Destroy(healthBarBorder);
         }
     }
+    void UpdateEnemyHpOnDifficulty()
+    {
+        if (difficulty.difficulty == 1)
+        {
+            maxHp *= 1.2f;
+        }
+    }
+    
 }

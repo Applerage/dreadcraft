@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     public GameObject impactEffect;
+    private Difficulty difficulty;
     private Rigidbody2D rb;
     public float damage = 20;
     
@@ -21,16 +22,26 @@ public class EnemyProjectile : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector3(player.position.x, player.position.y);
         rb = GetComponent<Rigidbody2D>();
-
+        difficulty = GameObject.FindGameObjectWithTag("Difficulty").GetComponent<Difficulty>();
+        UpdateDamageAndSpeedOnDifficulty();
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        
     }
 
 
+    void UpdateDamageAndSpeedOnDifficulty()
+    {
+        if (difficulty.difficulty == 1)
+        {
+            speed *= 1.8f;
+            damage *= 1.8f;
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

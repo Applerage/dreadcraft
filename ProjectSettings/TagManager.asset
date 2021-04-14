@@ -18,6 +18,7 @@ TagManager:
   - Bullet
   - Item
   - Potion
+  - Difficulty
   layers:
   - Default
   - TransparentFX
