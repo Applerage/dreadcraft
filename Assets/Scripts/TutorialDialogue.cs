@@ -16,10 +16,16 @@ public class TutorialDialogue : MonoBehaviour
     public bool onWizard1Collision = false;
     
     public bool onItemPickUp = false;
+    private SpellGain sg;
+    private bool isFinished;
+    private bool isFinished1;
     
     // Start is called before the first frame update
     void Start()
     {
+        isFinished = false;
+        isFinished1 = false;
+        sg = GetComponent<SpellGain>();
         onStart = true;
         dialogueTimer = dialogueDuration;
         dialogue.text =
@@ -45,15 +51,17 @@ public class TutorialDialogue : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("TutorialWizzard"))
+        if (collision.gameObject.CompareTag("TutorialWizzard") && !isFinished)
         {
+            isFinished = true;
             onWizardCollision = true;
             dialogueTimer = dialogueDuration;
             dialogue.text =  
                 "Greetings Bob! Hereby, I present to you the Fire Laser! It's a small, but powerful spell, use it wisely! Have you spoken with Carl The Green yet?";
         }
-        if (collision.gameObject.CompareTag("TutorialWizzard1"))
+        if (collision.gameObject.CompareTag("TutorialWizzard1") && !isFinished1)
         {
+            isFinished1 = true;
             onWizard1Collision = true;
             dialogueTimer = dialogueDuration;
             dialogue.text =  
