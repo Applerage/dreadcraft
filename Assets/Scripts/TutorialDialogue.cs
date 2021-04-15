@@ -19,8 +19,6 @@ public class TutorialDialogue : MonoBehaviour
     private SpellGain sg;
     private bool isFinished;
     private bool isFinished1;
-    
-    // Start is called before the first frame update
     void Start()
     {
         isFinished = false;
@@ -31,8 +29,6 @@ public class TutorialDialogue : MonoBehaviour
         dialogue.text =
             "Hello Bob! Welcome to GeFontyst trials! Please, talk to the purple festival magician for some more info";
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (onWizardCollision || onWizard1Collision || onItemPickUp || onStart)

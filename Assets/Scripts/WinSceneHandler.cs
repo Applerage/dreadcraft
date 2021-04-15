@@ -10,7 +10,6 @@ public class WinSceneHandler : MonoBehaviour
     {
         ehp = GetComponent<EnemyHp>();
     }
-
     void Update()
     {
         if (ehp.isDead)

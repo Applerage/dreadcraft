@@ -36,7 +36,6 @@ public class TalentTreeUnlock : MonoBehaviour
     public bool TT31IsUnlocked = false;
     public bool TT41IsUnlocked = false;
     public bool TT51IsUnlocked = false;
-    // Start is called before the first frame update
     void Start()
     {
         pr = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerResources>();
@@ -277,8 +276,6 @@ public class TalentTreeUnlock : MonoBehaviour
             ttpErrors.text = "Already Learned!";
         }
     }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (textTimerBool)

@@ -19,7 +19,6 @@ public class TalentTreeOverlayFill : MonoBehaviour
     public Image unlockedOverlay10;
 
     public Image explosion;
-    // Start is called before the first frame update
     void Start()
     {
         pr = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerResources>();
@@ -36,8 +35,6 @@ public class TalentTreeOverlayFill : MonoBehaviour
         unlockedOverlay10.fillAmount = 1;
         explosion.enabled = false;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (ttu.TT1IsUnlocked)

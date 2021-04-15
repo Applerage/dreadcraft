@@ -16,17 +16,14 @@ public class TalentPointsPopUp : MonoBehaviour
     private float dialogueTimer;
 
     private bool isActive;
-    // Start is called before the first frame update
     void Start()
     {
         isActive = false;
-        dialogueTimer = 6;
+        dialogueTimer = 4;
         talentPopUpDialogue.text = "";
         talentPopup.enabled = false;
         pr = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerResources>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (pr.currentTalentPoints >= 1)
@@ -40,7 +37,7 @@ public class TalentPointsPopUp : MonoBehaviour
             talentPopupText.text = "";
         }
 
-        if (pr.currentLevel == 2 && !isActive)
+        if (pr.currentLevel >= 2 && !isActive)
         {
             talentPopUpDialogue.text = "Use talent points after each level!";
             dialogueTimer -= Time.deltaTime;

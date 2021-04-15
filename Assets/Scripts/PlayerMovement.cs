@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
 
     Vector2 movement;
-    
-    // Update is called once per frame
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -29,13 +27,8 @@ public class PlayerMovement : MonoBehaviour
         }
         transform.localScale = characterScale;
     }
-
     private void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
-
-    
-
-    
 }

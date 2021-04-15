@@ -9,23 +9,12 @@ public class Projectile : MonoBehaviour
     public GameObject impactEffect;
     private Rigidbody2D rb;
     public float damage = 20;
-
-    
-
     private PlayerResources playerResources;
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerResources = GameObject.FindWithTag("Player").GetComponent<PlayerResources>();
     }
-
-    private void Update()
-    {
-        
-    }
-
-    // Update is called once per frame
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Item") && !collision.gameObject.CompareTag("Door") && !collision.gameObject.CompareTag("TutorialItem") && !collision.gameObject.CompareTag("Bullet") && !collision.gameObject.CompareTag("Potion"))

@@ -9,14 +9,12 @@ public class BossDoorLock : MonoBehaviour
 
     private EnemyHp ehp;
     private PlayerResources pr;
-    // Start is called before the first frame update
     void Start()
     {
         finalBossDoor.SetActive(true);
         ehp = GetComponent<EnemyHp>();
         pr = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerResources>();
     }
-
     private void Update()
     {
         if (pr.currentLevel >= 8)

@@ -9,7 +9,6 @@ public class CameraFollow : MonoBehaviour
     public float smoothing;
     public Vector2 minPosition;
     public Vector2 maxPosition;
-
     private void LateUpdate()
     {
         if (transform.position != target.position)

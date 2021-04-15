@@ -10,13 +10,10 @@ public class SelectDifficulty : MonoBehaviour
     public Toggle toggleInsane;
 
     public Difficulty difficulty;
-    // Start is called before the first frame update
     void Start()
     {
         difficulty = GameObject.FindGameObjectWithTag("Difficulty").GetComponent<Difficulty>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (toggleNormal.isOn)

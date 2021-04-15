@@ -38,10 +38,8 @@ public class PlayerResources : MonoBehaviour
 
     public bool levelFromTalents;
     
-    /* Percentage (%) values */
     private float healthPercentage;
     private float xpPercentage;
-    // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
@@ -51,8 +49,6 @@ public class PlayerResources : MonoBehaviour
         isFullHealth = true;
         levelFromTalents = false;
     }
-
-    // Update is called once per frame
     void Update()
     {
         healthPercentage = Mathf.RoundToInt(currentHealth / maxHealth * 100);

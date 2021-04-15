@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class Incinerate : MonoBehaviour
 {
 
-    Fireball fireball;
-
     public float cooldownTime = 0.8f;
     private float nextFireTime = 0f;
 
@@ -33,7 +31,6 @@ public class Incinerate : MonoBehaviour
     private void Start()
     {
         incinerateDuration = durationTime;
-        fireball = GetComponent<Fireball>();
         pickUp = GetComponent<SpellGain>();
         cooldownTimer = cooldownTime;
         fireOverlay.enabled = false;

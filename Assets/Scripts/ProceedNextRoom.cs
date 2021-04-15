@@ -9,17 +9,10 @@ public class ProceedNextRoom : MonoBehaviour
     SpellGain spell;
 
     public int roomNumber;
-    // Start is called before the first frame update
     void Start()
     {
         da = GameObject.FindGameObjectWithTag("Door").GetComponent<DoorAppear>();
         spell = GetComponent<SpellGain>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

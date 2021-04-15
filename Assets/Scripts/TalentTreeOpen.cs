@@ -7,7 +7,6 @@ public class TalentTreeOpen : MonoBehaviour
 {
     public Canvas TalentTree;
     bool isOpened = false;
-    // Start is called before the first frame update
     void Start()
     {
         TalentTree.enabled = false;
@@ -22,8 +21,6 @@ public class TalentTreeOpen : MonoBehaviour
     {
         TalentTree.enabled = false;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.N))

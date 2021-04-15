@@ -8,11 +8,6 @@ public class TalentTreeTTP : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 {
     public string message;
     public Text tooltipText;
-    void Start()
-    {
-        
-    }
- 
     public void OnPointerEnter(PointerEventData eventData)
     {
         tooltipText.text = message;

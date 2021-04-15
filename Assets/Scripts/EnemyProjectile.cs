@@ -9,14 +9,9 @@ public class EnemyProjectile : MonoBehaviour
     private Difficulty difficulty;
     private Rigidbody2D rb;
     public float damage = 20;
-    
     public float speed;
-
     private Transform player;
-
     private Vector3 target;
-
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -32,8 +27,6 @@ public class EnemyProjectile : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
         
     }
-
-
     void UpdateDamageAndSpeedOnDifficulty()
     {
         if (difficulty.difficulty == 1)
@@ -42,7 +35,6 @@ public class EnemyProjectile : MonoBehaviour
             damage *= 2f;
         }
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
 

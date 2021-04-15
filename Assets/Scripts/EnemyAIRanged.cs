@@ -5,23 +5,16 @@ using UnityEngine;
 public class EnemyAIRanged : MonoBehaviour
 {
     public SoundManager soundManager;
-
     public Animator myAnim;
     private Transform target;
-
     [SerializeField]
     private float speed;
-
     [SerializeField]
     private float maxRange;
-
     public float stoppingDistance;
-    
     [SerializeField]
     private float minRange;
-
     public Vector3 startPosition;
-
     public bool isMoving;
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -39,7 +32,6 @@ public class EnemyAIRanged : MonoBehaviour
         animationTimer = 0.8f;
         isHome = true;
     }
-
     private void Update()
     {
         if (!gameObject.GetComponent<EnemyHp>().isDead)
@@ -71,7 +63,6 @@ public class EnemyAIRanged : MonoBehaviour
             transform.position = this.transform.position;
             myAnim.Play("Die");
         }
-
         if (isMoving)
         {
             if (timeBtwShots <= 0)
@@ -97,7 +88,6 @@ public class EnemyAIRanged : MonoBehaviour
             }
         }
     }
-
     public void FollowPlayer()
     {
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);

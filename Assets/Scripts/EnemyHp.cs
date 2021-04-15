@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class EnemyHp : MonoBehaviour
 {
     public SoundManager soundManager;
-
     public float maxHp = 100;
     public float currentHp;
     private DoorAppear da;
@@ -20,15 +19,11 @@ public class EnemyHp : MonoBehaviour
     private float damageTimer;
     public float damageDuration;
     public bool tookDamage = false;
-
     private Incinerate incinerate;
     private EnemyAIRanged ai;
     private Difficulty difficulty;
-    
     public Image healthBar;
     public Image healthBarBorder;
-
-    // Start is called before the first frame update
     void Start()
     {
         difficulty = GameObject.FindGameObjectWithTag("Difficulty").GetComponent<Difficulty>();
@@ -44,8 +39,6 @@ public class EnemyHp : MonoBehaviour
         damageTimer = damageDuration;
         ai = GetComponent<EnemyAIRanged>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (isDead)
@@ -76,7 +69,6 @@ public class EnemyHp : MonoBehaviour
             healthBar.fillAmount = 1;
         }
     }
-
     public void takeDamage(float amount)
     {
         if (incinerate.duration)
