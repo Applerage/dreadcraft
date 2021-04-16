@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class BossDoorLock : MonoBehaviour
 {
+    public SoundManager soundManager;
     public GameObject finalBossDoor;
-
+    bool isHit = false;
     private EnemyHp ehp;
     private PlayerResources pr;
     public Text notification;
@@ -28,9 +29,15 @@ public class BossDoorLock : MonoBehaviour
         }
         if (ehp.currentHp < ehp.maxHp)
         {
+            if(isHit == false)
+            {
+                soundManager.ambientSound.Stop();
+                soundManager.bossFight.Play();
+                isHit = true;
+            }            
             finalBossDoor.SetActive(true);
         }
-
+        
         if (pr.currentLevel >= 10)
         {
             notificationActive = true;
