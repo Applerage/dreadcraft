@@ -21,6 +21,7 @@ public class EnemyHp : MonoBehaviour
     public bool tookDamage = false;
     private Incinerate incinerate;
     private EnemyAIRanged ai;
+    private EnemyAIMelee aiMelee;
     private Difficulty difficulty;
     public Image healthBar;
     public Image healthBarBorder;
@@ -61,12 +62,6 @@ public class EnemyHp : MonoBehaviour
                 damageTimer = damageDuration;
             }
             
-        }
-
-        if (ai.isHome)
-        {
-            currentHp = maxHp;
-            healthBar.fillAmount = 1;
         }
     }
     public void takeDamage(float amount)

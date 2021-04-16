@@ -23,9 +23,11 @@ public class EnemyAIRanged : MonoBehaviour
     public bool isHome;
     public GameObject rotationObject;
     public GameObject projectile;
+    private EnemyHp ehp;
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        ehp = GetComponent<EnemyHp>();
         startPosition = transform.position;
         timeBtwShots = startTimeBtwShots;
         isMoving = false;
@@ -47,6 +49,8 @@ public class EnemyAIRanged : MonoBehaviour
                 GoHome();
                 isMoving = false;
                 isHome = true;
+                ehp.currentHp = ehp.maxHp;
+                ehp.healthBar.fillAmount = 1;
             }
         }
         if (transform.position.x > target.position.x)
