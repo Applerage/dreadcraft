@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpellGain : MonoBehaviour
 {
@@ -15,8 +16,14 @@ public class SpellGain : MonoBehaviour
     public GameObject potion2;
     private PlayerResources pr;
     private TutorialDialogue td;
+    public Image spellIncinerateIcon;
+    public Image spellBookIncinerate;
+    public Image spellBookIncinerateBorder;
     private void Start()
     {
+        spellIncinerateIcon.enabled = false;
+        spellBookIncinerate.enabled = false;
+        spellBookIncinerateBorder.enabled = false;
         pr = GetComponent<PlayerResources>();
         td = GetComponent<TutorialDialogue>();
     }

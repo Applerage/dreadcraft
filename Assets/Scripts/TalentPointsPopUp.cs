@@ -19,7 +19,7 @@ public class TalentPointsPopUp : MonoBehaviour
     void Start()
     {
         isActive = false;
-        dialogueTimer = 4;
+        dialogueTimer = 5;
         talentPopUpDialogue.text = "";
         talentPopup.enabled = false;
         pr = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerResources>();
@@ -39,7 +39,7 @@ public class TalentPointsPopUp : MonoBehaviour
 
         if (pr.currentLevel >= 2 && !isActive)
         {
-            talentPopUpDialogue.text = "Use talent points after each level!";
+            talentPopUpDialogue.text = "You get a talent point, you get a talent point, everybody gets a talent point";
             dialogueTimer -= Time.deltaTime;
             if (dialogueTimer <= 0)
             {

@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemStats : MonoBehaviour
 {
 
+    public string name;
     public float intellect;
 
     public float stamina;

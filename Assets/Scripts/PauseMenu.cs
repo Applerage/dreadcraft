@@ -37,16 +37,22 @@ public class PauseMenu : MonoBehaviour
     }
     public void Resume()
     {
-        Time.timeScale = 1f;
-        pauseMenu.enabled = false;
-        isOpened = false;
+        if (isOpened)
+        {
+            Time.timeScale = 1f;
+            pauseMenu.enabled = false;
+            isOpened = false; 
+        }
     }
 
     public void Pause()
     {
-        Time.timeScale = 0f;
-        pauseMenu.enabled = true;
-        isOpened = true;
+        if (!isOpened)
+        {
+            Time.timeScale = 0f;
+            pauseMenu.enabled = true;
+            isOpened = true;
+        }
     }
 
     public void Quit()

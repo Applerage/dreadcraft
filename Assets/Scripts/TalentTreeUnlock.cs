@@ -238,6 +238,9 @@ public class TalentTreeUnlock : MonoBehaviour
         if (TT5IsUnlocked == false && pr.currentTalentPoints > 0)
         {
             sg.gainIncinerate = true;
+            sg.spellIncinerateIcon.enabled = true;
+            sg.spellBookIncinerate.enabled = true;
+            sg.spellBookIncinerateBorder.enabled = true;
             TT5IsUnlocked = true;
             pr.currentTalentPoints--;
         }

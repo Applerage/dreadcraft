@@ -100,7 +100,7 @@ public class EnemyHp : MonoBehaviour
     {
         if (difficulty.difficulty == 1)
         {
-            maxHp *= 1.2f;
+            maxHp *= 1.5f;
         }
     }
     
