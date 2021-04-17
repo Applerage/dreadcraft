@@ -165,7 +165,7 @@ public class TalentTreeUnlock : MonoBehaviour
             textTimerBool = true;
             ttpErrors.text = "Learn the Tier 1 first!";
         }
-        if (TT31IsUnlocked == false && pr.currentTalentPoints > 1 && TT3IsUnlocked)
+        if (TT31IsUnlocked == false && pr.currentTalentPoints > 1 && TT3IsUnlocked && !meteor.isOnCd)
         {
             meteor.cooldownTime -= 7;
             TT31IsUnlocked = true;

@@ -28,6 +28,7 @@ public class PlayerResources : MonoBehaviour
     public Image expBar;
     public Image hpBar;
     public Text levelText;
+    public Text diedText;
 
     public float currentXp;
     private float xpNeededToLevel;
@@ -42,6 +43,7 @@ public class PlayerResources : MonoBehaviour
     private float xpPercentage;
     void Start()
     {
+        Time.timeScale = 1f;
         currentHealth = maxHealth;
         currentLevel = 1;
         maxLevel = 10;
@@ -181,7 +183,7 @@ public class PlayerResources : MonoBehaviour
             if (lives < 0)
             {
                 currentHealth = 0;
-                SceneManager.LoadScene("LoseScene");
+                StartCoroutine(LoadScene());
             }
             else if (lives == 1)
             {
@@ -193,5 +195,12 @@ public class PlayerResources : MonoBehaviour
             }
             
         }
+    }
+    IEnumerator LoadScene()
+    {
+        diedText.text = "You died!";
+        Time.timeScale = 0.2f;
+        yield return new WaitForSeconds(0.6f);
+        SceneManager.LoadScene("LoseScene");
     }
 }
