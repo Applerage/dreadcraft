@@ -23,6 +23,7 @@ public class WinSceneHandler : MonoBehaviour
 
     IEnumerator LoadScene()
     {
+        GetComponent<PlayerMovement>().enabled = false;
         winText.text = "The proficiency is achieved!";
         Time.timeScale = 0.2f;
         yield return new WaitForSeconds(0.6f);

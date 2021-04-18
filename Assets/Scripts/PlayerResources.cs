@@ -198,6 +198,7 @@ public class PlayerResources : MonoBehaviour
     }
     IEnumerator LoadScene()
     {
+        GetComponent<PlayerMovement>().enabled = false;
         diedText.text = "You died!";
         Time.timeScale = 0.2f;
         yield return new WaitForSeconds(0.6f);

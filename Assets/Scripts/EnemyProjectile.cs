@@ -32,7 +32,7 @@ public class EnemyProjectile : MonoBehaviour
         if (difficulty.difficulty == 1)
         {
             speed *= 1.8f;
-            damage *= 2.2f;
+            damage *= 1.8f;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
