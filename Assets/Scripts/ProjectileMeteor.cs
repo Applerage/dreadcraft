@@ -42,7 +42,6 @@ public class ProjectileMeteor : MonoBehaviour
             }
             Destroy(gameObject);
             Instantiate(impactEffect, transform.position, Quaternion.identity);
-            
         }
     }
 }
