@@ -122,6 +122,7 @@ public class PlayerResources : MonoBehaviour
                 currentHealth = maxHealth;
                 particlesActive = true;
                 playParticles = true;
+                GetComponent<FireBlast>().damage = GetComponent<FireBlast>().damage + 15;
             }
             else
             {
@@ -133,6 +134,7 @@ public class PlayerResources : MonoBehaviour
                 currentHealth = maxHealth;
                 particlesActive = true;
                 playParticles = true;
+                GetComponent<FireBlast>().damage = GetComponent<FireBlast>().damage + 15;
             }
         }
 
