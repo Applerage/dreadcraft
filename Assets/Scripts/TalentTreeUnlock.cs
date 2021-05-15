@@ -9,39 +9,32 @@ public class TalentTreeUnlock : MonoBehaviour
     private SpellGain sg;
     private Meteor meteor;
     private Incinerate incinerate;
+    private FireBlast fireBlast;
 
     public Text ttpErrors;
     private float textTimer;
     private float textTimerDuration = 2f;
     private bool textTimerBool = false;
 
-    public Image TTHealth1Image;
-    public Image TTHealth2Image;
-    public Image TTHealth3Image;
-    public Image TTHealth4Image;
-    public Image TTHealth5Image;
-    public Image TTHealth11Image;
-    public Image TTHealth21Image;
-    public Image TTHealth31Image;
-    public Image TTHealth41Image;
-    public Image TTHealth51Image;
-
     public bool TT1IsUnlocked = false;
     public bool TT2IsUnlocked = false;
     public bool TT3IsUnlocked = false;
     public bool TT4IsUnlocked = false;
     public bool TT5IsUnlocked = false;
+    public bool TT6IsUnlocked = false;
     public bool TT11IsUnlocked = false;
     public bool TT21IsUnlocked = false;
     public bool TT31IsUnlocked = false;
     public bool TT41IsUnlocked = false;
     public bool TT51IsUnlocked = false;
+    public bool TT61IsUnlocked = false;
     void Start()
     {
         pr = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerResources>();
         sg = GameObject.FindGameObjectWithTag("Player").GetComponent<SpellGain>();
         meteor = GameObject.FindGameObjectWithTag("Player").GetComponent<Meteor>();
         incinerate = GameObject.FindGameObjectWithTag("Player").GetComponent<Incinerate>();
+        fireBlast = GameObject.FindGameObjectWithTag("Player").GetComponent<FireBlast>();
         ttpErrors = GameObject.FindGameObjectWithTag("ErrorTalentText").GetComponent<Text>();
         textTimer = textTimerDuration;
     }
@@ -274,6 +267,26 @@ public class TalentTreeUnlock : MonoBehaviour
             ttpErrors.text = "Not enough talent points!";
         }
         else if (TT51IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
+        }
+    }
+    public void UnlockTTSpell3()
+    {
+        if (TT6IsUnlocked == false && pr.currentTalentPoints > 0)
+        {
+            sg.gainFireBlast = true;
+            sg.spellFireBlastIcon.enabled = true;
+            TT6IsUnlocked = true;
+            pr.currentTalentPoints--;
+        }
+        else if (pr.currentTalentPoints <= 0 && !TT6IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT6IsUnlocked)
         {
             textTimerBool = true;
             ttpErrors.text = "Already Learned!";

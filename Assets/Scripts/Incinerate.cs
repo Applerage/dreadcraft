@@ -37,7 +37,6 @@ public class Incinerate : MonoBehaviour
         incinerateBuff.enabled = false;
         incinerateBuffDuration.text = "";
         ttu = GameObject.FindGameObjectWithTag("GameManager").GetComponent<TalentTreeUnlock>();
-        Debug.Log(incinerateDuration);
     }
 
     void Update()
@@ -91,7 +90,7 @@ public class Incinerate : MonoBehaviour
         }
         else
         {
-            incinerateLoading.fillAmount = 1;
+            incinerateLoading.fillAmount = -1;
         }
     }
 }

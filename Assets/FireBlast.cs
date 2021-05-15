@@ -12,9 +12,9 @@ public class FireBlast : MonoBehaviour
     public float cooldownTime;
     private float nextFireTime = 0f;
 
-    public bool castinglaser = false;
-    public float castTimelaser = 0.1f;
-    private float timerCastTimelaser;
+    public bool castingBlast = false;
+    public float castTimeBlast = 0.1f;
+    private float timerCastTimeBlast;
 
     public bool isOnCd = false;
     private float cooldownTimer;
@@ -26,21 +26,29 @@ public class FireBlast : MonoBehaviour
     public float particlesTimer;
     private float particlesTimerCd;
     private bool particlesBool;
+    
+    public Image fireBlastLoading;
+    public Text fireBlastCd;
+
+    private SpellGain pickUp;
     private void Start()
     {
         particlesTimerCd = particlesTimer;
-        timerCastTimelaser = castTimelaser;
+        timerCastTimeBlast = castTimeBlast;
         meteor = GetComponent<Meteor>();
         fireball = GetComponent<Fireball>();
         cooldownTimer = cooldownTime;
         isCast = false;
+        pickUp = GetComponent<SpellGain>();
     }
 
     void Update()
     {
-        if (meteor.casting == false && fireball.castingFireBall == false)
-            {
-                if (timerCastTimelaser <= 0 && isCast)
+        if (pickUp.gainFireBlast)
+        { 
+            if (meteor.casting == false && fireball.castingFireBall == false)
+            { 
+                if (timerCastTimeBlast <= 0 && isCast)
                 {
                     GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                     foreach (GameObject enemy in enemies)
@@ -52,26 +60,25 @@ public class FireBlast : MonoBehaviour
                     }
                     nextFireTime = Time.time + cooldownTime;
                     cooldownTimer = cooldownTime;
-                    timerCastTimelaser = castTimelaser;
+                    timerCastTimeBlast = castTimeBlast;
                     isCast = false;
                 }
-
                 if (Time.time > nextFireTime)
                 {
-                    if (castinglaser)
+                    if (castingBlast)
                     {
-                        timerCastTimelaser -= Time.deltaTime;
+                        timerCastTimeBlast -= Time.deltaTime;
                     }
+
                     if (Input.GetKeyDown(KeyCode.Q))
                     {
-                        castinglaser = true;
+                        castingBlast = true;
                         isCast = true;
                         particlesBool = true;
                         blastParticles.Play();
-                    }
-                    isOnCd = false;
+                    } 
+                    isOnCd = false; 
                 }
-                
             }
             if (particlesBool)
             {
@@ -83,24 +90,26 @@ public class FireBlast : MonoBehaviour
                     particlesTimerCd = particlesTimer;
                 }
             }
+
             if (Time.time <= nextFireTime)
             {
                 isOnCd = true;
-
             }
-            // if (isOnCd)
-            // {
-            //     cooldownTimer -= Time.deltaTime;
-            //     firelaserLoading.fillAmount = cooldownTimer / cooldownTime;
-            //     fireLaserCd.text = (cooldownTimer % cooldownTime).ToString();
-            //     if (firelaserLoading.fillAmount <= 0.05)
-            //     {
-            //         fireLaserCd.text = "";
-            //     }
-            // }
+
+            if (isOnCd)
+            {
+                cooldownTimer -= Time.deltaTime;
+                fireBlastLoading.fillAmount = cooldownTimer / cooldownTime;
+                fireBlastCd.text = (cooldownTimer % cooldownTime).ToString();
+                if (fireBlastLoading.fillAmount <= 0.05)
+                {
+                    fireBlastCd.text = "";
+                }
+            }
+            else
+            {
+                fireBlastLoading.fillAmount = -1;
+            }
         }
-        // else
-        // {
-        //     firelaserLoading.fillAmount = 1;
-        // }
+    }
 }
