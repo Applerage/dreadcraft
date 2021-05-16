@@ -8,7 +8,9 @@ public class EnemyAIRanged : MonoBehaviour
     public Animator myAnim;
     private Transform target;
     [SerializeField]
-    private float speed;
+    public float speed;
+
+    private float actualSpeed;
     [SerializeField]
     private float maxRange;
     public float stoppingDistance;
@@ -71,7 +73,6 @@ public class EnemyAIRanged : MonoBehaviour
         {
             if (timeBtwShots <= 0)
             {
-
                 myAnim.Play("CastSpell");
                 if (animationTimer <= 0)
                 {

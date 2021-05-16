@@ -17,6 +17,18 @@ public class TalentTreeOverlayFill : MonoBehaviour
     public Image unlockedOverlay8;
     public Image unlockedOverlay9;
     public Image unlockedOverlay10;
+    public Image unlockedOverlay11;
+    public Image unlockedOverlay12;
+    public Image unlockedOverlay13;
+    public Image unlockedOverlay14;
+    public Image unlockedOverlay15;
+    public Image unlockedOverlay16;
+    public Image unlockedOverlay17;
+    public Image unlockedOverlay18;
+    public Image unlockedOverlay19;
+    public Image unlockedOverlay20;
+    public Image unlockedOverlay21;
+    
 
     public Image explosion;
     void Start()
@@ -33,6 +45,17 @@ public class TalentTreeOverlayFill : MonoBehaviour
         unlockedOverlay8.fillAmount = 1;
         unlockedOverlay9.fillAmount = 1;
         unlockedOverlay10.fillAmount = 1;
+        unlockedOverlay11.fillAmount = 1;
+        unlockedOverlay12.fillAmount = 1;
+        unlockedOverlay13.fillAmount = 1;
+        unlockedOverlay14.fillAmount = 1;
+        unlockedOverlay15.fillAmount = 1;
+        unlockedOverlay16.fillAmount = 1;
+        unlockedOverlay17.fillAmount = 1;
+        unlockedOverlay18.fillAmount = 1;
+        unlockedOverlay19.fillAmount = 1;
+        unlockedOverlay20.fillAmount = 1;
+        unlockedOverlay21.fillAmount = 1;
         explosion.enabled = false;
     }
     void Update()
@@ -77,7 +100,50 @@ public class TalentTreeOverlayFill : MonoBehaviour
         {
             unlockedOverlay10.fillAmount = 0;
         }
-
+        if (ttu.TT111IsUnlocked)
+        {
+            unlockedOverlay11.fillAmount = 0;
+        }
+        if (ttu.TT211IsUnlocked)
+        {
+            unlockedOverlay12.fillAmount = 0;
+        }
+        if (ttu.TT311IsUnlocked)
+        {
+            unlockedOverlay13.fillAmount = 0;
+        }
+        if (ttu.TT411IsUnlocked)
+        {
+            unlockedOverlay14.fillAmount = 0;
+        }
+        if (ttu.TT511IsUnlocked)
+        {
+            unlockedOverlay15.fillAmount = 0;
+        }
+        if (ttu.TT6IsUnlocked)
+        {
+            unlockedOverlay16.fillAmount = 0;
+        }
+        if (ttu.TT61IsUnlocked)
+        {
+            unlockedOverlay17.fillAmount = 0;
+        }
+        if (ttu.TT611IsUnlocked)
+        {
+            unlockedOverlay18.fillAmount = 0;
+        }
+        if (ttu.TT7IsUnlocked)
+        {
+            unlockedOverlay19.fillAmount = 0;
+        }
+        if (ttu.TT71IsUnlocked)
+        {
+            unlockedOverlay20.fillAmount = 0;
+        }
+        if (ttu.TT711IsUnlocked)
+        {
+            unlockedOverlay21.fillAmount = 0;
+        }
         if (pr.currentTalentPoints > 0)
         {
             explosion.enabled = true;

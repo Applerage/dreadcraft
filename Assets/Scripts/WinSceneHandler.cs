@@ -27,6 +27,6 @@ public class WinSceneHandler : MonoBehaviour
         winText.text = "The proficiency is achieved!";
         Time.timeScale = 0.2f;
         yield return new WaitForSeconds(0.4f);
-        SceneManager.LoadScene("WinScene");
+        SceneManager.LoadScene("Level3");
     }
 }

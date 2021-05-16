@@ -10,6 +10,7 @@ public class TalentTreeUnlock : MonoBehaviour
     private Meteor meteor;
     private Incinerate incinerate;
     private FireBlast fireBlast;
+    private Conflagarate conflagarate;
 
     public Text ttpErrors;
     private float textTimer;
@@ -22,12 +23,21 @@ public class TalentTreeUnlock : MonoBehaviour
     public bool TT4IsUnlocked = false;
     public bool TT5IsUnlocked = false;
     public bool TT6IsUnlocked = false;
+    public bool TT7IsUnlocked = false;
     public bool TT11IsUnlocked = false;
     public bool TT21IsUnlocked = false;
     public bool TT31IsUnlocked = false;
     public bool TT41IsUnlocked = false;
     public bool TT51IsUnlocked = false;
     public bool TT61IsUnlocked = false;
+    public bool TT71IsUnlocked = false;
+    public bool TT111IsUnlocked = false;
+    public bool TT211IsUnlocked = false;
+    public bool TT311IsUnlocked = false;
+    public bool TT411IsUnlocked = false;
+    public bool TT511IsUnlocked = false;
+    public bool TT611IsUnlocked = false;
+    public bool TT711IsUnlocked = false;
     void Start()
     {
         pr = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerResources>();
@@ -35,6 +45,7 @@ public class TalentTreeUnlock : MonoBehaviour
         meteor = GameObject.FindGameObjectWithTag("Player").GetComponent<Meteor>();
         incinerate = GameObject.FindGameObjectWithTag("Player").GetComponent<Incinerate>();
         fireBlast = GameObject.FindGameObjectWithTag("Player").GetComponent<FireBlast>();
+        conflagarate = GameObject.FindGameObjectWithTag("Player").GetComponent<Conflagarate>();
         ttpErrors = GameObject.FindGameObjectWithTag("ErrorTalentText").GetComponent<Text>();
         textTimer = textTimerDuration;
     }
@@ -84,6 +95,32 @@ public class TalentTreeUnlock : MonoBehaviour
             ttpErrors.text = "Already Learned!";
         }
     }
+    
+    public void UnlockTTHealth3()
+    {
+        if (!TT11IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 2 first!";
+        }
+        if (TT111IsUnlocked == false && pr.currentTalentPoints > 2 && TT11IsUnlocked)
+        {
+            pr.maxHealth += 400;
+            pr.currentHealth = pr.maxHealth;
+            TT11IsUnlocked = true;
+            pr.currentTalentPoints -= 3;
+        }
+        else if (pr.currentTalentPoints <= 2 && !TT111IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT111IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
+        }
+    }
     public void UnlockTTDamage1()
     {
         if (TT2IsUnlocked == false && pr.currentTalentPoints > 0)
@@ -122,6 +159,31 @@ public class TalentTreeUnlock : MonoBehaviour
             ttpErrors.text = "Not enough talent points!";
         }
         else if (TT21IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
+        }
+    }
+    
+    public void UnlockTTDamage3()
+    {
+        if (!TT21IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 1 first!";
+        }
+        if (TT211IsUnlocked == false && pr.currentTalentPoints > 2 && TT21IsUnlocked)
+        {
+            pr.intellect += 150;
+            TT211IsUnlocked = true;
+            pr.currentTalentPoints -= 3;
+        }
+        else if (pr.currentTalentPoints <= 2 && !TT211IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT211IsUnlocked)
         {
             textTimerBool = true;
             ttpErrors.text = "Already Learned!";
@@ -170,6 +232,31 @@ public class TalentTreeUnlock : MonoBehaviour
             ttpErrors.text = "Not enough talent points!";
         }
         else if (TT31IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
+        }
+    }
+    
+    public void UnlockTTCooldown3()
+    {
+        if (!TT31IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 2 first!";
+        }
+        if (TT311IsUnlocked == false && pr.currentTalentPoints > 2 && TT31IsUnlocked && !meteor.isOnCd)
+        {
+            meteor.cooldownTime -= 5;
+            TT311IsUnlocked = true;
+            pr.currentTalentPoints -= 3;
+        }
+        else if (pr.currentTalentPoints <= 2 && !TT311IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT311IsUnlocked)
         {
             textTimerBool = true;
             ttpErrors.text = "Already Learned!";
@@ -226,6 +313,35 @@ public class TalentTreeUnlock : MonoBehaviour
             ttpErrors.text = "Already Learned!";
         }
     }
+    
+    public void UnlockTTExperience3()
+    {
+        if (!TT41IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 2 first!";
+        }
+        if (TT411IsUnlocked == false && pr.currentTalentPoints > 2 && TT41IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "";
+            pr.levelFromTalents = true;
+            pr.currentXp += 1500;
+            pr.maxLevel++;
+            TT411IsUnlocked = true;
+            pr.currentTalentPoints -= 3;
+        }
+        else if (pr.currentTalentPoints <= 2 && !TT411IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT411IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
+        }
+    }
     public void UnlockTTSpell1()
     {
         if (TT5IsUnlocked == false && pr.currentTalentPoints > 0)
@@ -272,12 +388,39 @@ public class TalentTreeUnlock : MonoBehaviour
             ttpErrors.text = "Already Learned!";
         }
     }
+    
     public void UnlockTTSpell3()
+    {
+        if (!TT51IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 2 first!";
+        }
+        if (TT511IsUnlocked == false && pr.currentTalentPoints > 2 && TT51IsUnlocked)
+        {
+            incinerate.cooldownTime -= 15;
+            TT511IsUnlocked = true;
+            pr.currentTalentPoints -= 3;
+        }
+        else if (pr.currentTalentPoints <= 2 && !TT511IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT511IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
+        }
+    }
+    public void UnlockTTFireBlast1()
     {
         if (TT6IsUnlocked == false && pr.currentTalentPoints > 0)
         {
             sg.gainFireBlast = true;
             sg.spellFireBlastIcon.enabled = true;
+            sg.spellBookFireBlastBorder.enabled = true;
+            sg.spellBookFireBlast.enabled = true;
             TT6IsUnlocked = true;
             pr.currentTalentPoints--;
         }
@@ -287,6 +430,129 @@ public class TalentTreeUnlock : MonoBehaviour
             ttpErrors.text = "Not enough talent points!";
         }
         else if (TT6IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
+        }
+    }
+    
+    public void UnlockTTFireBlast2()
+    {
+        if (!TT6IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 1 first!";
+        }
+        if (TT61IsUnlocked == false && pr.currentTalentPoints > 1 && TT6IsUnlocked)
+        {
+            fireBlast.damage *= 2;
+            TT61IsUnlocked = true;
+            pr.currentTalentPoints -= 2;
+        }
+        else if (pr.currentTalentPoints <= 1 && !TT61IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT61IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
+        }
+    }
+    
+    public void UnlockTTFireBlast3()
+    {
+        if (!TT61IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 2 first!";
+        }
+        if (TT611IsUnlocked == false && pr.currentTalentPoints > 1 && TT61IsUnlocked)
+        {
+            fireBlast.cooldownTime -= 4;
+            TT611IsUnlocked = true;
+            pr.currentTalentPoints -= 3;
+        }
+        else if (pr.currentTalentPoints <= 1 && !TT611IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT611IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
+        }
+    }
+    
+    public void UnlockTTConf1()
+    {
+        if (TT7IsUnlocked == false && pr.currentTalentPoints > 0)
+        {
+            sg.gainConflagarate = true;
+            sg.spellConfIcon.enabled = true;
+            sg.spellBookConf.enabled = true;
+            sg.spellBookConfBorder.enabled = true;
+            TT7IsUnlocked = true;
+            pr.currentTalentPoints--;
+        }
+        else if (pr.currentTalentPoints <= 0 && !TT7IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT7IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
+        }
+    }
+    
+    public void UnlockTTConf2()
+    {
+        if (!TT7IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 1 first!";
+        }
+        if (TT71IsUnlocked == false && pr.currentTalentPoints > 1 && TT7IsUnlocked)
+        {
+            conflagarate.cooldownTime -= 5;
+            TT71IsUnlocked = true;
+            pr.currentTalentPoints -= 2;
+        }
+        else if (pr.currentTalentPoints <= 1 && !TT71IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT61IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Already Learned!";
+        }
+    }
+    
+    public void UnlockTTConf3()
+    {
+        if (!TT71IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Learn the Tier 2 first!";
+        }
+        if (TT711IsUnlocked == false && pr.currentTalentPoints > 1 && TT71IsUnlocked)
+        {
+            conflagarate.cooldownTime = 1;
+            TT711IsUnlocked = true;
+            pr.currentTalentPoints -= 3;
+        }
+        else if (pr.currentTalentPoints <= 1 && !TT711IsUnlocked)
+        {
+            textTimerBool = true;
+            ttpErrors.text = "Not enough talent points!";
+        }
+        else if (TT711IsUnlocked)
         {
             textTimerBool = true;
             ttpErrors.text = "Already Learned!";

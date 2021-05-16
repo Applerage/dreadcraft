@@ -8,7 +8,7 @@ public class EnemyAIMelee : MonoBehaviour
     public Animator myAnim;
     private Transform target;
     [SerializeField]
-    private float speed;
+    public float speed;
     [SerializeField]
     private float maxRange;
     public float stoppingDistance;
@@ -24,6 +24,11 @@ public class EnemyAIMelee : MonoBehaviour
     public GameObject rotationObject;
     public GameObject projectile;
     private EnemyHp ehp;
+    public bool isSlowed;
+    public float isSlowedTimer = 3f;
+    private float isSlowedTimerCd;
+    public bool isMelee;
+    private float actualSpeed;
     private void Start()
     {
         ehp = GetComponent<EnemyHp>();
@@ -33,10 +38,16 @@ public class EnemyAIMelee : MonoBehaviour
         isMoving = false;
         animationTimer = 0.8f;
         isHome = true;
+        isSlowed = false;
+        isSlowedTimerCd = isSlowedTimer;
+        isMelee = true;
+        actualSpeed = speed;
     }
     private void Update()
     {
-        if (!gameObject.GetComponent<EnemyHp>().isDead)
+        if (!isSlowed)
+        {
+            if (!gameObject.GetComponent<EnemyHp>().isDead)
         {
             if (Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange )
             {
@@ -99,6 +110,18 @@ public class EnemyAIMelee : MonoBehaviour
             else
             {
                 timeBtwShots -= Time.deltaTime;
+            }
+        }
+        }
+        if (isSlowed)
+        {
+            speed = 0;
+            isSlowedTimerCd -= Time.deltaTime;
+            if (isSlowedTimerCd <= 0)
+            {
+                isSlowed = false;
+                isSlowedTimerCd = isSlowedTimer;
+                speed = actualSpeed;
             }
         }
     }

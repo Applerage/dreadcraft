@@ -36,7 +36,6 @@ public class TalentTreeOpen : MonoBehaviour
                 isOpened = false;
             }
         }
-
                     
     }
 }

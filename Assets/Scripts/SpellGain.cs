@@ -11,6 +11,7 @@ public class SpellGain : MonoBehaviour
     public bool gainLaser = false;
     public bool gainIncinerate = false;
     public bool gainFireBlast = false;
+    public bool gainConflagarate = false;
     public ParticleSystem potionParticles1;
     public ParticleSystem potionParticles2;
     public GameObject potion1;
@@ -21,12 +22,22 @@ public class SpellGain : MonoBehaviour
     public Image spellBookIncinerate;
     public Image spellBookIncinerateBorder;
     public Image spellFireBlastIcon;
+    public Image spellBookFireBlast;
+    public Image spellBookFireBlastBorder;
+    public Image spellConfIcon;
+    public Image spellBookConf;
+    public Image spellBookConfBorder;
     private void Start()
     {
         spellIncinerateIcon.enabled = false;
         spellBookIncinerate.enabled = false;
         spellBookIncinerateBorder.enabled = false;
         spellFireBlastIcon.enabled = false;
+        spellBookFireBlast.enabled = false;
+        spellBookFireBlastBorder.enabled = false;
+        spellConfIcon.enabled = false;
+        spellBookConf.enabled = false;
+        spellBookConfBorder.enabled = false;
         pr = GetComponent<PlayerResources>();
         td = GetComponent<TutorialDialogue>();
     }

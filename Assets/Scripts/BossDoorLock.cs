@@ -37,6 +37,11 @@ public class BossDoorLock : MonoBehaviour
             }            
             finalBossDoor.SetActive(true);
         }
+
+        if (ehp.isDead)
+        {
+            soundManager.bossFight.Stop();
+        }
         
         if (pr.currentLevel >= 10)
         {

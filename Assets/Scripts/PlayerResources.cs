@@ -46,7 +46,7 @@ public class PlayerResources : MonoBehaviour
         Time.timeScale = 1f;
         currentHealth = maxHealth;
         currentLevel = 1;
-        maxLevel = 10;
+        maxLevel = 30;
         currentTalentPoints = 0;
         isFullHealth = true;
         levelFromTalents = false;
@@ -134,7 +134,7 @@ public class PlayerResources : MonoBehaviour
                 currentHealth = maxHealth;
                 particlesActive = true;
                 playParticles = true;
-                GetComponent<FireBlast>().damage = GetComponent<FireBlast>().damage + 15;
+                GetComponent<FireBlast>().damage = GetComponent<FireBlast>().damage + 4;
             }
         }
 
